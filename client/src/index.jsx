@@ -105,7 +105,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>guitarJs</h1>
+        <h1>fretJs</h1>
       </div>
     )
   }
