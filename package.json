@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DominicMonares/bass-js.git"
+    "url": "git+https://github.com/DominicMonares/fret-js.git"
   },
   "author": "Dominic Monares",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DominicMonares/bass-js/issues"
+    "url": "https://github.com/DominicMonares/fret-js/issues"
   },
-  "homepage": "https://github.com/DominicMonares/bass-js#readme",
+  "homepage": "https://github.com/DominicMonares/fret-js#readme",
   "dependencies": {
     "express": "^4.17.3",
     "path": "^0.12.7",
