@@ -12,6 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      start: false,
       currentNode: [],
       output: []
     };
@@ -63,22 +64,6 @@ class App extends React.Component {
     }
   }
 
-  detectPitch() {
-    var buffer = new Uint8Array(analyser.fftSize);
-    analyser.getByteTimeDomainData(buffer);
-    var fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
-    if (fundamentalFreq !== -1) {
-      var note = this.findClosestNote(fundamentalFreq, notesArray);
-      console.log('NOTE ', note);
-    } else {
-      var newOutput = this.state.output.slice();
-      newOutput.push(this.state.currentNode);
-      this.setState({currentNode: [], output: newOutput});
-    }
-
-    frameId = window.requestAnimationFrame(this.detectPitch.bind(this));
-  }
-
   findClosestNote(freq, notes) {
     var low = -1, high = notes.length;
     while (high - low > 1) {
@@ -95,6 +80,51 @@ class App extends React.Component {
     }
 
     return notes[low];
+  }
+
+  noteTally(notes) {
+    var tally = {};
+    for (var i = 0; i < notes.length - 1; i++) {
+      if (!tally[notes[i]]) {
+        tally[notes[i]] = 1;
+      } else {
+        tally[notes[i]] ++;
+      }
+    }
+
+    var note = ['', 0];
+    for (var n in tally) {
+      if (tally[n] > note[1]) {
+        note = [n, tally[n]];
+      }
+    }
+
+    return note[0];
+  }
+
+  async detectPitch() {
+    var buffer = new Uint8Array(analyser.fftSize);
+    analyser.getByteTimeDomainData(buffer);
+    var fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
+    if (fundamentalFreq !== -1) {
+      await this.setState({start: true})
+      var note = this.findClosestNote(fundamentalFreq, notesArray);
+      if (note.note !== 'F#8') {
+        var newCurrentNode = this.state.currentNode.slice();
+        newCurrentNode.push(note.note);
+        await this.setState({ currentNode: newCurrentNode });
+      }
+    } else if (this.state.start) {
+      var newOutput = this.state.output.slice();
+      var newNote = this.noteTally(this.state.currentNode.slice());
+      if (newNote !== '') {
+        newOutput.push(newNote);
+        await this.setState({ start: false, currentNode: [], output: newOutput });
+        console.log('OUTPUT ', this.state.output);
+      }
+    }
+
+    frameId = window.requestAnimationFrame(this.detectPitch.bind(this));
   }
 
   componentDidMount() {
