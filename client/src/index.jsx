@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import notes from '../../notes.js';
 
 const AudioContext = window.AudioContext || window.webkitAudioContext;
