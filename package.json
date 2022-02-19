@@ -1,0 +1,35 @@
+{
+  "name": "bass-js",
+  "version": "1.0.0",
+  "description": "This program turns your bass guitar into a keyboard!",
+  "main": "npx nodemon ./server/index.js -w",
+  "scripts": {
+    "react-dev": "webpack --watch",
+    "start": "npx nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DominicMonares/bass-js.git"
+  },
+  "author": "Dominic Monares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DominicMonares/bass-js/issues"
+  },
+  "homepage": "https://github.com/DominicMonares/bass-js#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
