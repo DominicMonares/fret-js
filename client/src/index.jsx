@@ -14,6 +14,7 @@ class App extends React.Component {
     this.state = {
       record: true,
       start: false,
+      shift: false,
       currentNode: [],
       output: []
     };
@@ -79,10 +80,10 @@ class App extends React.Component {
     }
 
     if (Math.abs(notes[high].frequency - freq) <= Math.abs(notes[low].frequency - freq)) {
-      return notes[high];
+      return [notes[high], high];
     }
 
-    return notes[low];
+    return [notes[low], low];
   }
 
   noteTally(notes) {
@@ -105,6 +106,14 @@ class App extends React.Component {
     return note[0];
   }
 
+  noteWithinRange(index) {
+    if (index >= 25 && index <= 76) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   async record(e) {
     if (this.state.record) {
       // detect pitch
@@ -114,11 +123,18 @@ class App extends React.Component {
       if (fundamentalFreq !== -1) {
         await this.setState({start: true})
         var note = this.findClosestNote(fundamentalFreq, notesArray);
-        if (note.note !== 'F#8') {
+
+        if (this.noteWithinRange(note[1])) {
           var newCurrentNode = this.state.currentNode.slice();
-          newCurrentNode.push(note.note);
+          if (!this.state.shift) {
+            newCurrentNode.push(note[0]['keys'][0]);
+          } else {
+            newCurrentNode.push(note[0]['keys'][1]);
+          }
+
           await this.setState({ currentNode: newCurrentNode });
         }
+
       } else if (this.state.start) {
         var newOutput = this.state.output.slice();
         var newNote = this.noteTally(this.state.currentNode.slice());
