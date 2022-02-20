@@ -122,14 +122,31 @@ class App extends React.Component {
       var fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
       if (fundamentalFreq !== -1) {
         await this.setState({start: true})
-        var note = this.findClosestNote(fundamentalFreq, notesArray);
+        var noteNode = this.findClosestNote(fundamentalFreq, notesArray);
+        var note = noteNode[0];
+        var noteIndex = noteNode[1];
 
-        if (this.noteWithinRange(note[1])) {
+        if (this.noteWithinRange(noteIndex)) {
           var newCurrentNode = this.state.currentNode.slice();
           if (!this.state.shift) {
-            newCurrentNode.push(note[0]['keys'][0]);
+            var noteKey = note['keys'][0];
           } else {
-            newCurrentNode.push(note[0]['keys'][1]);
+            var noteKey = note['keys'][1];
+          }
+
+          if (noteKey === 'shift') {
+            if (!this.state.shift) {
+              await this.setState({shift: true});
+            } else {
+              await this.setState({shift: false});
+            }
+
+          } else if (noteKey === 'delete') {
+            newCurrentNode.pop();
+          } else if (noteKey === 'return') {
+            this.stopRecording();
+          } else {
+            newCurrentNode.push(noteKey);
           }
 
           await this.setState({ currentNode: newCurrentNode });
@@ -151,8 +168,9 @@ class App extends React.Component {
     }
   }
 
-  stopRecording(e) {
-    this.setState({record: false});
+  async stopRecording(e) {
+    await this.setState({record: false});
+    console.log(this.state.output.join(''));
   }
 
   componentDidMount() {
