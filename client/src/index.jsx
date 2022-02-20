@@ -4,7 +4,7 @@ import notes from '../../notes.js';
 
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const context = new AudioContext;
-const analyser = new AnalyserNode(context, {fftSize: 2048});
+const analyser = new AnalyserNode(context, { fftSize: 2048 });
 const notesArray = notes;
 
 class App extends React.Component {
@@ -16,19 +16,22 @@ class App extends React.Component {
       shift: false,
       frameId: null,
       currentNode: [],
-      output: []
+      output: [],
+      func: '',
+      clearRecording: <></>
     };
     this.findFundamentalFreq = this.findFundamentalFreq.bind(this);
     this.record = this.record.bind(this);
     this.stopRecording = this.stopRecording.bind(this);
+    this.clearRecording = this.clearRecording.bind(this);
   }
 
   getGuitar() {
-    return navigator.mediaDevices.getUserMedia({audio: {latency: 0}});
+    return navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } });
   }
 
   async setupContext() {
-    if (context.state === 'suspended') {await context.resume()}
+    if (context.state === 'suspended') { await context.resume() }
 
     const guitar = await this.getGuitar(); // media stream
     const source = context.createMediaStreamSource(guitar); // media stream audio source node
@@ -51,7 +54,7 @@ class App extends React.Component {
         bestK = k;
       }
 
-      if (r > 0.9) {break}
+      if (r > 0.9) { break }
     }
 
     if (bestR > 0.0025) {
@@ -79,7 +82,7 @@ class App extends React.Component {
     let tally = {};
     for (let i = 0; i < notes.length - 1; i++) {
       let count = tally[notes[i]];
-      count ? tally[notes[i]] ++ : tally[notes[i]] = 1
+      count ? tally[notes[i]]++ : tally[notes[i]] = 1
     }
 
     let note = ['', 0];
@@ -149,27 +152,61 @@ class App extends React.Component {
         this.saveNote();
       }
 
-      await this.setState({frameId: window.requestAnimationFrame(this.record.bind(this))})
+      await this.setState({ frameId: window.requestAnimationFrame(this.record.bind(this)) })
     } else {
-      await this.setState({record: true});
+      await this.setState({ record: true });
     }
   }
 
   async stopRecording(e) {
-    await this.setState({record: false});
-    console.log(this.state.output.join(''));
+    await this.setState({ record: false });
+    var newOutput = this.state.output.join('');
+    var newFunc;
+
+    try {
+      newFunc = eval('() => {return "test"}')()
+    } catch (err) {
+      if (err instanceof SyntaxError) {
+        newFunc = 'ERROR';
+      }
+    }
+
+    await this.setState({
+      func: newFunc,
+      clearRecording: <button onClick={this.clearRecording}>Clear Recording</button>
+    });
+  }
+
+  clearRecording(e) {
+    this.setState({
+      record: true,
+      start: false,
+      shift: false,
+      frameId: null,
+      currentNode: [],
+      output: [],
+      func: ''
+    })
   }
 
   componentDidMount() {
-    navigator.getUserMedia({audio: true}, this.setupContext.bind(this), () => {console.log('CONTEXT SETUP FAILED')});
+    navigator.getUserMedia({ audio: true }, this.setupContext.bind(this), () => { console.log('CONTEXT SETUP FAILED') });
   }
 
   render() {
     return (
       <div>
         <h1>fretJs</h1>
-        <button onClick={this.record}>Start Recording</button>
-        <button onClick={this.stopRecording}>Stop Recording</button>
+        <div>
+          <button onClick={this.record}>Start Recording</button>
+          <button onClick={this.stopRecording}>Stop Recording</button>
+          {this.state.clearRecording}
+        </div>
+        <div>
+          <p>{this.state.output.join('')}</p>
+          <p>{this.state.func}</p>
+        </div>
+
       </div>
     )
   }
