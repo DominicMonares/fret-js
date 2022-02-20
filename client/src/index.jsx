@@ -5,8 +5,7 @@ import notes from '../../notes.js';
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const context = new AudioContext;
 const analyser = new AnalyserNode(context, {fftSize: 2048});
-var source, guitar, frameId, fData;
-var notesArray = notes;
+const notesArray = notes;
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class App extends React.Component {
       record: true,
       start: false,
       shift: false,
+      frameId: null,
       currentNode: [],
       output: []
     };
@@ -23,60 +23,49 @@ class App extends React.Component {
     this.stopRecording = this.stopRecording.bind(this);
   }
 
-  async setupContext() { // stream received
-    const guitar = await this.getGuitar(); // media stream
-    if (context.state === 'suspended') {
-      await context.resume();
-    }
+  getGuitar() {
+    return navigator.mediaDevices.getUserMedia({audio: {latency: 0}});
+  }
 
+  async setupContext() {
+    if (context.state === 'suspended') {await context.resume()}
+
+    const guitar = await this.getGuitar(); // media stream
     const source = context.createMediaStreamSource(guitar); // media stream audio source node
     source
       .connect(analyser)
       .connect(context.destination);
   }
 
-  getGuitar() {
-    return navigator.mediaDevices.getUserMedia({
-      audio: {latency: 0}
-    })
-  }
-
   findFundamentalFreq(buffer, sampleRate) {
-    var n = 1024, bestR = 0, bestK = -1;
-    for (var k = 8; k <= 6000; k++) {
-      var sum = 0;
-      for (var i = 0; i < n; i++) {
+    let n = 1024, bestR = 0, bestK = -1;
+    for (let k = 8; k <= 6000; k++) {
+      let sum = 0;
+      for (let i = 0; i < n; i++) {
         sum += ((buffer[i] - 127.5) / 127.5) * ((buffer[i + k] - 127.5) / 127.5);
       }
 
-      var r = sum / n;
+      let r = sum / n;
       if (r > bestR) {
         bestR = r;
         bestK = k;
       }
 
-      if (r > 0.9) {
-        break;
-      }
+      if (r > 0.9) {break}
     }
 
     if (bestR > 0.0025) {
-      var fundamentalFreq = sampleRate / bestK;
-      return fundamentalFreq;
+      return sampleRate / bestK;
     } else {
       return -1;
     }
   }
 
   findClosestNote(freq, notes) {
-    var low = -1, high = notes.length;
+    let low = -1, high = notes.length;
     while (high - low > 1) {
-      var pivot = Math.round((low + high) / 2);
-      if (notes[pivot].frequency <= freq) {
-        low = pivot;
-      } else {
-        high = pivot;
-      }
+      let pivot = Math.round((low + high) / 2);
+      notes[pivot].frequency <= freq ? low = pivot : high = pivot;
     }
 
     if (Math.abs(notes[high].frequency - freq) <= Math.abs(notes[low].frequency - freq)) {
@@ -87,20 +76,15 @@ class App extends React.Component {
   }
 
   noteTally(notes) {
-    var tally = {};
-    for (var i = 0; i < notes.length - 1; i++) {
-      if (!tally[notes[i]]) {
-        tally[notes[i]] = 1;
-      } else {
-        tally[notes[i]] ++;
-      }
+    let tally = {};
+    for (let i = 0; i < notes.length - 1; i++) {
+      let count = tally[notes[i]];
+      count ? tally[notes[i]] ++ : tally[notes[i]] = 1
     }
 
-    var note = ['', 0];
-    for (var n in tally) {
-      if (tally[n] > note[1]) {
-        note = [n, tally[n]];
-      }
+    let note = ['', 0];
+    for (let n in tally) {
+      tally[n] > note[1] ? note = [n, tally[n]] : null;
     }
 
     return note[0];
@@ -114,55 +98,58 @@ class App extends React.Component {
     }
   }
 
+  async checkNotes(freq) {
+    await this.setState({ start: true })
+    let noteNode = this.findClosestNote(freq, notesArray);
+    let note = noteNode[0];
+    let noteIndex = noteNode[1];
+    if (this.noteWithinRange(noteIndex)) {
+      let newCurrentNode = this.state.currentNode.slice();
+      let noteKey;
+      !this.state.shift ? noteKey = note['keys'][0] : noteKey = note['keys'][1];
+      newCurrentNode.push(noteKey);
+      this.setState({ currentNode: newCurrentNode });
+    }
+  }
+
+  async saveNote() {
+    let newOutput = this.state.output.slice();
+    let newNote = this.noteTally(this.state.currentNode.slice());
+    if (newNote !== '') {
+      if (newNote === 'shift') {
+        if (!this.state.shift) {
+          await this.setState({ start: false, shift: true, currentNode: [], output: newOutput });
+        } else {
+          await this.setState({ start: false, shift: false, currentNode: [], output: newOutput });
+        }
+        console.log('SHIFT ON')
+      } else if (newNote === 'delete') {
+        let deleted = newOutput.pop();
+        await this.setState({ start: false, currentNode: [], output: newOutput });
+        console.log(`${deleted} DELETED`);
+      } else if (newNote === 'return') {
+        await this.stopRecording();
+      } else {
+        newOutput.push(newNote);
+        await this.setState({ start: false, currentNode: [], output: newOutput });
+        console.log('OUTPUT ', this.state.output);
+      }
+    }
+  }
+
   async record(e) {
     if (this.state.record) {
-      // detect pitch
-      var buffer = new Uint8Array(analyser.fftSize);
+      // detects pitch
+      let buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
-      var fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
+      let fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
       if (fundamentalFreq !== -1) {
-        await this.setState({start: true})
-        var noteNode = this.findClosestNote(fundamentalFreq, notesArray);
-        var note = noteNode[0];
-        var noteIndex = noteNode[1];
-        if (this.noteWithinRange(noteIndex)) {
-          var newCurrentNode = this.state.currentNode.slice();
-          if (!this.state.shift) {
-            var noteKey = note['keys'][0];
-          } else {
-            var noteKey = note['keys'][1];
-          }
-
-          newCurrentNode.push(noteKey);
-          await this.setState({ currentNode: newCurrentNode });
-        }
+        await this.checkNotes(fundamentalFreq);
       } else if (this.state.start) {
-        var newOutput = this.state.output.slice();
-        var newNote = this.noteTally(this.state.currentNode.slice());
-        if (newNote !== '') {
-          if (newNote === 'shift') {
-            console.log('SHIFT ON')
-            if (!this.state.shift) {
-              await this.setState({ start: false, shift: true, currentNode: [], output: newOutput });
-            } else {
-              await this.setState({ start: false, shift: false, currentNode: [], output: newOutput });
-            }
-
-          } else if (newNote === 'delete') {
-            var deleted = newOutput.pop();
-            console.log(`${deleted} DELETED`);
-            await this.setState({ start: false, currentNode: [], output: newOutput });
-          } else if (newNote === 'return') {
-            this.stopRecording();
-          } else {
-            newOutput.push(newNote);
-            await this.setState({ start: false, currentNode: [], output: newOutput });
-            console.log('OUTPUT ', this.state.output);
-          }
-        }
+        this.saveNote();
       }
 
-      frameId = window.requestAnimationFrame(this.record.bind(this));
+      await this.setState({frameId: window.requestAnimationFrame(this.record.bind(this))})
     } else {
       await this.setState({record: true});
     }
