@@ -125,7 +125,6 @@ class App extends React.Component {
         var noteNode = this.findClosestNote(fundamentalFreq, notesArray);
         var note = noteNode[0];
         var noteIndex = noteNode[1];
-
         if (this.noteWithinRange(noteIndex)) {
           var newCurrentNode = this.state.currentNode.slice();
           if (!this.state.shift) {
@@ -134,31 +133,32 @@ class App extends React.Component {
             var noteKey = note['keys'][1];
           }
 
-          if (noteKey === 'shift') {
-            if (!this.state.shift) {
-              await this.setState({shift: true});
-            } else {
-              await this.setState({shift: false});
-            }
-
-          } else if (noteKey === 'delete') {
-            newCurrentNode.pop();
-          } else if (noteKey === 'return') {
-            this.stopRecording();
-          } else {
-            newCurrentNode.push(noteKey);
-          }
-
+          newCurrentNode.push(noteKey);
           await this.setState({ currentNode: newCurrentNode });
         }
-
       } else if (this.state.start) {
         var newOutput = this.state.output.slice();
         var newNote = this.noteTally(this.state.currentNode.slice());
         if (newNote !== '') {
-          newOutput.push(newNote);
-          await this.setState({ start: false, currentNode: [], output: newOutput });
-          console.log('OUTPUT ', this.state.output);
+          if (newNote === 'shift') {
+            console.log('SHIFT ON')
+            if (!this.state.shift) {
+              await this.setState({ start: false, shift: true, currentNode: [], output: newOutput });
+            } else {
+              await this.setState({ start: false, shift: false, currentNode: [], output: newOutput });
+            }
+
+          } else if (newNote === 'delete') {
+            var deleted = newOutput.pop();
+            console.log(`${deleted} DELETED`);
+            await this.setState({ start: false, currentNode: [], output: newOutput });
+          } else if (newNote === 'return') {
+            this.stopRecording();
+          } else {
+            newOutput.push(newNote);
+            await this.setState({ start: false, currentNode: [], output: newOutput });
+            console.log('OUTPUT ', this.state.output);
+          }
         }
       }
 
