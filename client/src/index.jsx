@@ -45,7 +45,9 @@ class App extends React.Component {
     for (let k = 8; k <= 6000; k++) {
       let sum = 0;
       for (let i = 0; i < n; i++) {
-        sum += ((buffer[i] - 127.5) / 127.5) * ((buffer[i + k] - 127.5) / 127.5);
+        let signal1 = (buffer[i] - 127.5) / 127.5;
+        let signal2 = (buffer[i + k] - 127.5) / 127.5;
+        sum += signal1 * signal2;
       }
 
       let r = sum / n;
@@ -78,7 +80,7 @@ class App extends React.Component {
     return [notes[low], low];
   }
 
-  noteTally(notes) {
+  removeOvertones(notes) {
     let tally = {};
     for (let i = 0; i < notes.length - 1; i++) {
       let count = tally[notes[i]];
@@ -101,7 +103,7 @@ class App extends React.Component {
     }
   }
 
-  async checkNotes(freq) {
+  async translateFreq(freq) {
     await this.setState({ start: true })
     let noteNode = this.findClosestNote(freq, notesArray);
     let note = noteNode[0];
@@ -117,7 +119,7 @@ class App extends React.Component {
 
   async saveNote() {
     let newOutput = this.state.output.slice();
-    let newNote = this.noteTally(this.state.currentNode.slice());
+    let newNote = this.removeOvertones(this.state.currentNode.slice());
     if (newNote !== '') {
       if (newNote === 'shift') {
         if (!this.state.shift) {
@@ -147,7 +149,7 @@ class App extends React.Component {
       analyser.getByteTimeDomainData(buffer);
       let fundamentalFreq = this.findFundamentalFreq(buffer, context.sampleRate);
       if (fundamentalFreq !== -1) {
-        await this.checkNotes(fundamentalFreq);
+        await this.translateFreq(fundamentalFreq);
       } else if (this.state.start) {
         this.saveNote();
       }
@@ -206,7 +208,6 @@ class App extends React.Component {
           <p>{this.state.output.join('')}</p>
           <p>{this.state.func}</p>
         </div>
-
       </div>
     )
   }
