@@ -15,6 +15,7 @@ class App extends React.Component {
       recording: <></>,
       start: false,
       shift: false,
+      shifted: <></>,
       frameId: null,
       currentNode: [],
       output: [],
@@ -122,11 +123,10 @@ class App extends React.Component {
     if (newNote !== '') {
       if (newNote === 'shift') {
         if (!this.state.shift) {
-          await this.setState({ start: false, shift: true, currentNode: [], output: newOutput });
+          await this.setState({ start: false, shift: true, shifted: <div>SHIFT ON</div>, currentNode: [], output: newOutput });
         } else {
-          await this.setState({ start: false, shift: false, currentNode: [], output: newOutput });
+          await this.setState({ start: false, shift: false, shifted: <></>, currentNode: [], output: newOutput });
         }
-        console.log('SHIFT ON')
       } else if (newNote === 'delete') {
         let deleted = newOutput.pop();
         await this.setState({ start: false, currentNode: [], output: newOutput });
@@ -204,7 +204,10 @@ class App extends React.Component {
           <button onClick={this.stopRecording}>Stop Recording</button>
           {this.state.clearRecording}
         </div>
-        {this.state.recording}
+        <div>
+          {this.state.recording}
+          {this.state.shifted}
+        </div>
         <div className="func">
           <p>{this.state.output.join('')}</p>
           <p>{this.state.func}</p>
