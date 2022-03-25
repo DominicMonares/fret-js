@@ -81,18 +81,15 @@ class App extends React.Component {
   }
 
   removeOvertones(notes) {
-    let tally = {};
+    console.log('NOTES ', notes);
+    let noteNode = [null, 0];
     for (let i = 0; i < notes.length - 1; i++) {
-      let count = tally[notes[i]];
-      count ? tally[notes[i]]++ : tally[notes[i]] = 1
+      if (notes[i][1] > noteNode[1]) {
+        noteNode = [notes[i][0], notes[i][1]];
+      }
     }
 
-    let note = ['', 0];
-    for (let n in tally) {
-      tally[n] > note[1] ? note = [n, tally[n]] : null;
-    }
-
-    return note[0];
+    return noteNode[0];
   }
 
   noteWithinRange(index) {
@@ -112,7 +109,8 @@ class App extends React.Component {
       let newCurrentNode = this.state.currentNode.slice();
       let noteKey;
       !this.state.shift ? noteKey = note['keys'][0] : noteKey = note['keys'][1];
-      newCurrentNode.push(noteKey);
+      newCurrentNode.push([noteKey, noteIndex]);
+      console.log('CURRENT NODE ', noteNode);
       this.setState({ currentNode: newCurrentNode });
     }
   }
@@ -154,7 +152,7 @@ class App extends React.Component {
         this.saveNote();
       }
 
-      await this.setState({ frameId: window.requestAnimationFrame(this.record.bind(this)) })
+      await this.setState({ frameId: window.requestAnimationFrame(this.record.bind(this)) });
     } else {
       await this.setState({ record: true });
     }
@@ -204,7 +202,7 @@ class App extends React.Component {
           <button onClick={this.stopRecording}>Stop Recording</button>
           {this.state.clearRecording}
         </div>
-        <div>
+        <div className="func">
           <p>{this.state.output.join('')}</p>
           <p>{this.state.func}</p>
         </div>
