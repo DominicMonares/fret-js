@@ -164,7 +164,7 @@ class App extends React.Component {
     var newFunc;
 
     try {
-      newFunc = eval(newOutput);
+      newFunc = eval(newOutput); // Never use eval on a site that needs security!
     } catch (err) {
       if (err instanceof SyntaxError) {
         newFunc = 'ERROR';
