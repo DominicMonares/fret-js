@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       record: true,
+      recording: <></>,
       start: false,
       shift: false,
       frameId: null,
@@ -152,14 +153,14 @@ class App extends React.Component {
         this.saveNote();
       }
 
-      await this.setState({ frameId: window.requestAnimationFrame(this.record.bind(this)) });
+      await this.setState({ recording: <div>Recording in progress!</div>, frameId: window.requestAnimationFrame(this.record.bind(this)) });
     } else {
       await this.setState({ record: true });
     }
   }
 
   async stopRecording(e) {
-    await this.setState({ record: false });
+    await this.setState({ record: false, recording: <></> });
     var newOutput = this.state.output.join('');
     var newFunc;
 
@@ -177,9 +178,10 @@ class App extends React.Component {
     });
   }
 
-  clearRecording(e) {
+  async clearRecording(e) {
     this.setState({
-      record: true,
+      record: false,
+      recording: <></>,
       start: false,
       shift: false,
       frameId: null,
@@ -202,6 +204,7 @@ class App extends React.Component {
           <button onClick={this.stopRecording}>Stop Recording</button>
           {this.state.clearRecording}
         </div>
+        {this.state.recording}
         <div className="func">
           <p>{this.state.output.join('')}</p>
           <p>{this.state.func}</p>
@@ -211,4 +214,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
