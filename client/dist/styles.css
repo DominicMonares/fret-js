@@ -6,7 +6,7 @@
 .workspace {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 25px;
 }
 
@@ -19,7 +19,7 @@
 .buttons {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .record, .stop-record, .clear-record {
@@ -29,7 +29,7 @@
   background-color: lavender;
   width: 150px;
   height: 30px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .stop-record, .clear-record {
@@ -43,7 +43,7 @@
   background-color: darkorchid;
   width: 150px;
   height: 30px;
-  font-weight: bold;
+  font-weight: 500;
   color: lavender;
 }
 

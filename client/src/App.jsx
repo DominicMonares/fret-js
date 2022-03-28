@@ -201,7 +201,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="logo" >
-          <img src={logo} width="215" height="83" alt="Logo"/>
+          <img src={logo} width="205" height="63" alt="Logo"/>
         </div>
         <div className="buttons">
           <button className={this.state.recording} onClick={this.record}>{
