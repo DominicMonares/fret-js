@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import notes from '../../notes.js';
 import logo from '../assets/logo.png';
+import fretKey from '../assets/key.png';
+import fret24 from '../assets/24_fret.png';
 
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const context = new AudioContext;
@@ -13,7 +15,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       record: true,
-      recording: <></>,
+      recording: 'record',
       start: false,
       shift: false,
       shifted: <></>,
@@ -21,7 +23,6 @@ class App extends React.Component {
       currentNode: [],
       output: [],
       func: '',
-      clearRecording: <></>
     };
     this.findFundamentalFreq = this.findFundamentalFreq.bind(this);
     this.record = this.record.bind(this);
@@ -154,14 +155,14 @@ class App extends React.Component {
         this.saveNote();
       }
 
-      await this.setState({ recording: <div>Recording in progress!</div>, frameId: window.requestAnimationFrame(this.record.bind(this)) });
+      await this.setState({ recording: 'recording', frameId: window.requestAnimationFrame(this.record.bind(this)) });
     } else {
       await this.setState({ record: true });
     }
   }
 
   async stopRecording(e) {
-    await this.setState({ record: false, recording: <></> });
+    await this.setState({ record: false, recording: 'record' });
     var newOutput = this.state.output.join('');
     var newFunc;
 
@@ -174,21 +175,21 @@ class App extends React.Component {
     }
 
     await this.setState({
-      func: newFunc,
-      clearRecording: <button onClick={this.clearRecording}>Clear Recording</button>
+      func: newFunc
     });
   }
 
   async clearRecording(e) {
     this.setState({
       record: false,
-      recording: <></>,
+      recording: 'record',
       start: false,
       shift: false,
+      shifted: <></>,
       frameId: null,
       currentNode: [],
       output: [],
-      func: ''
+      func: '',
     })
   }
 
@@ -199,19 +200,30 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <img src={logo} alt="Logo"/>
-        <div>
-          <button onClick={this.record}>Start Recording</button>
-          <button onClick={this.stopRecording}>Stop Recording</button>
-          {this.state.clearRecording}
+        <div className="logo" >
+          <img src={logo} width="215" height="83" alt="Logo"/>
         </div>
-        <div>
-          {this.state.recording}
-          {this.state.shifted}
+        <div className="buttons">
+          <button className={this.state.recording} onClick={this.record}>{
+            this.state.recording === 'record' ? 'Start Recording' : 'Recording!'
+          }</button>
+          <button className="stop-record" onClick={this.stopRecording}>Stop Recording</button>
+          <button className="clear-record" onClick={this.clearRecording}>Clear Recording</button>
         </div>
-        <div className="func">
-          <p>{this.state.output.join('')}</p>
-          <p>{this.state.func}</p>
+        <div className="workspace">
+          <div>
+            <span className="input-label">Input</span>
+            <span className="shift">{this.state.shifted}</span>
+            <div className="input func">{this.state.output.join('')}</div>
+          </div>
+          <div>
+            <span className="output-label">Output</span>
+            <div className="output func">{this.state.func}</div>
+          </div>
+        </div>
+        <div className="frets">
+          <img className="fret-key" src={fretKey} alt="Fret Key"/>
+          <img src={fret24} width="100%" alt="24 Fret Map"/>
         </div>
       </div>
     )
