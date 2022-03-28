@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import notes from '../../notes.js';
+import logo from '../assets/logo.png';
 
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const context = new AudioContext;
@@ -198,7 +199,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>fretJs</h1>
+        <img src={logo} alt="Logo"/>
         <div>
           <button onClick={this.record}>Start Recording</button>
           <button onClick={this.stopRecording}>Stop Recording</button>
