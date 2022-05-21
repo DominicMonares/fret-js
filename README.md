@@ -1,7 +1,10 @@
 # fret-js
 Write JavaScript with your guitar!
 
+<p align="center">
 [![fretJs Demo](https://img.youtube.com/vi/QHJy7SKRfSE/0.jpg)](https://www.youtube.com/watch?v=QHJy7SKRfSE)
+</p>
+
 
 ### What's needed:
 - USB Audio Interface
