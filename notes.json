@@ -1,0 +1,262 @@
+[
+  {
+    "note": "C#2",
+    "frequency": 69.3,
+    "keys": [" ", " "]
+  },
+  {
+    "note": "D2",
+    "frequency": 73.42,
+    "keys": ["\n", "\n"]
+  },
+  {
+    "note": "D#2",
+    "frequency": 77.78,
+    "keys": ["shift", "shift"]
+  },
+  {
+    "note": "E2",
+    "frequency": 82.41,
+    "keys": ["a", "A"]
+  },
+  {
+    "note": "F2",
+    "frequency": 87.31,
+    "keys": ["b", "B"]
+  },
+  {
+    "note": "F#2",
+    "frequency": 92.5,
+    "keys": ["c", "C"]
+  },
+  {
+    "note": "G2",
+    "frequency": 98,
+    "keys": ["d", "D"]
+  },
+  {
+    "note": "G#2",
+    "frequency": 103.83,
+    "keys": ["e", "E"]
+  },
+  {
+    "note": "A2",
+    "frequency": 110,
+    "keys": ["f", "F"]
+  },
+  {
+    "note": "A#2",
+    "frequency": 116.54,
+    "keys": ["g", "G"]
+  },
+  {
+    "note": "B2",
+    "frequency": 123.47,
+    "keys": ["h", "H"]
+  },
+  {
+    "note": "C3",
+    "frequency": 130.81,
+    "keys": ["i", "I"]
+  },
+  {
+    "note": "C#3",
+    "frequency": 138.59,
+    "keys": ["j", "J"]
+  },
+  {
+    "note": "D3",
+    "frequency": 146.83,
+    "keys": ["k", "K"]
+  },
+  {
+    "note": "D#3",
+    "frequency": 155.56,
+    "keys": ["l", "L"]
+  },
+  {
+    "note": "E3",
+    "frequency": 164.81,
+    "keys": ["m", "M"]
+  },
+  {
+    "note": "F3",
+    "frequency": 174.61,
+    "keys": ["n", "N"]
+  },
+  {
+    "note": "F#3",
+    "frequency": 185,
+    "keys": ["o", "O"]
+  },
+  {
+    "note": "G3",
+    "frequency": 196,
+    "keys": ["p", "P"]
+  },
+  {
+    "note": "G#3",
+    "frequency": 207.65,
+    "keys": ["q", "Q"]
+  },
+  {
+    "note": "A3",
+    "frequency": 220,
+    "keys": ["r", "R"]
+  },
+  {
+    "note": "A#3",
+    "frequency": 233.08,
+    "keys": ["s", "S"]
+  },
+  {
+    "note": "B3",
+    "frequency": 246.94,
+    "keys": ["t", "T"]
+  },
+  {
+    "note": "C4",
+    "frequency": 261.63,
+    "keys": ["u", "U"]
+  },
+  {
+    "note": "C#4",
+    "frequency": 277.18,
+    "keys": ["v", "V"]
+  },
+  {
+    "note": "D4",
+    "frequency": 293.66,
+    "keys": ["w", "W"]
+  },
+  {
+    "note": "D#4",
+    "frequency": 311.13,
+    "keys": ["x", "X"]
+  },
+  {
+    "note": "E4",
+    "frequency": 329.63,
+    "keys": ["y", "Y"]
+  },
+  {
+    "note": "F4",
+    "frequency": 349.23,
+    "keys": ["z", "Z"]
+  },
+  {
+    "note": "F#4",
+    "frequency": 369.99,
+    "keys": ["1", "!"]
+  },
+  {
+    "note": "G4",
+    "frequency": 392,
+    "keys": ["2", "@"]
+  },
+  {
+    "note": "G#4",
+    "frequency": 415.3,
+    "keys": ["3", "#"]
+  },
+  {
+    "note": "A4",
+    "frequency": 440,
+    "keys": ["4", "$"]
+  },
+  {
+    "note": "A#4",
+    "frequency": 466.16,
+    "keys": ["5", "%"]
+  },
+  {
+    "note": "B4",
+    "frequency": 493.88,
+    "keys": ["6", "^"]
+  },
+  {
+    "note": "C5",
+    "frequency": 523.25,
+    "keys": ["7", "&"]
+  },
+  {
+    "note": "C#5",
+    "frequency": 554.37,
+    "keys": ["8", "*"]
+  },
+  {
+    "note": "D5",
+    "frequency": 587.33,
+    "keys": ["9", "("]
+  },
+  {
+    "note": "D#5",
+    "frequency": 622.25,
+    "keys": ["0", ")"]
+  },
+  {
+    "note": "E5",
+    "frequency": 659.25,
+    "keys": ["-", "_"]
+  },
+  {
+    "note": "F5",
+    "frequency": 698.46,
+    "keys": ["=", "+"]
+  },
+  {
+    "note": "F#5",
+    "frequency": 739.99,
+    "keys": ["[", "{"]
+  },
+  {
+    "note": "G5",
+    "frequency": 783.99,
+    "keys": ["]", "}"]
+  },
+  {
+    "note": "G#5",
+    "frequency": 830.61,
+    "keys": ["\\", "|"]
+  },
+  {
+    "note": "A5",
+    "frequency": 880,
+    "keys": [";", ":"]
+  },
+  {
+    "note": "A#5",
+    "frequency": 932.33,
+    "keys": ["'", "\""]
+  },
+  {
+    "note": "B5",
+    "frequency": 987.77,
+    "keys": [",", "<"]
+  },
+  {
+    "note": "C6",
+    "frequency": 1046.5,
+    "keys": [".", ">"]
+  },
+  {
+    "note": "C#6",
+    "frequency": 1108.73,
+    "keys": ["/", "?"]
+  },
+  {
+    "note": "D6",
+    "frequency": 1174.66,
+    "keys": ["`", "~"]
+  },
+  {
+    "note": "D#6",
+    "frequency": 1244.51,
+    "keys": ["delete", "delete"]
+  },
+  {
+    "note": "E6",
+    "frequency": 1318.51,
+    "keys": ["return", "return"]
+  }
+]
