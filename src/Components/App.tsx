@@ -4,6 +4,7 @@ import notes from '../../notes.json';
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
 import fret24 from '../../assets/24_fret.png';
+import './App.css';
 
 
 const AudioContext = window.AudioContext;
@@ -25,8 +26,8 @@ const App = () => {
   useEffect(() => {
     navigator.getUserMedia(
       { audio: true },
-      setupContext.bind(this),
-      () => { console.log('CONTEXT SETUP FAILED') }
+      async () => await setupContext(),
+      () => console.log('CONTEXT SETUP FAILED')
     );
   });
 
@@ -42,7 +43,6 @@ const App = () => {
       .connect(analyser)
       .connect(context.destination);
   }
-
 
   const findFundamentalFreq = (buffer: any, sampleRate: number) => { // TEMP ANY, MAKE TYPE
     const n = 1024
@@ -62,8 +62,9 @@ const App = () => {
         bestK = k;
       }
 
-      if (r > 0.9) { break }
+      if (r > 0.9) break;
     }
+
 
     if (bestR > 0.0025) {
       return sampleRate / bestK;
@@ -80,8 +81,7 @@ const App = () => {
       notes[pivot].frequency <= freq ? low = pivot : high = pivot;
     }
 
-    console.log('QUE? ', notes)
-    if (Math.abs(notes[high].frequency - freq) <= Math.abs(notes[low].frequency - freq)) {
+    if (Math.abs(notes[high].frequency - freq) <= Math.abs(notes[low]?.frequency - freq)) {
       return [notes[high], high];
     }
 
@@ -89,7 +89,6 @@ const App = () => {
   }
 
   const removeOvertones = (notes: any): string | number | null => { // TEMP ANY, MAKE TYPE
-    console.log('NOTES ', notes);
     let noteNode = [null, 0];
     for (let i = 0; i < notes.length - 1; i++) {
       if (noteNode[1] && notes[i][1] > noteNode[1]) {
@@ -109,7 +108,9 @@ const App = () => {
   }
 
   const translateFreq = (freq: any) => { // TEMP ANY
+    console.log('FASDFASDXF ', start);
     setStart(true);
+    console.log('ASDFDSAF ', start)
     const noteNode = findClosestNote(freq, notesArray);
     const note = noteNode[0];
     const noteIndex = noteNode[1];
@@ -123,20 +124,23 @@ const App = () => {
     }
   }
 
-  const startRecording = (e: any) => { // TEMP ANY
+  const startRecording = () => { // TEMP ANY
     if (record) {
       // detects pitch
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      if (fundamentalFreq !== -1) {
+      console.log('START ', start)
+      if (fundamentalFreq !== -1 && fundamentalFreq < 1337) { // 1337 is ceiling for E6
         translateFreq(fundamentalFreq);
-      } else if (start) {
+      }
+
+      if (start) {
         saveNote();
       }
 
       setRecording('recording');
-      setFrameId(window.requestAnimationFrame(startRecording.bind(this)));
+      setFrameId(window.requestAnimationFrame(startRecording));
     } else {
       setRecord(true);
     }
@@ -152,7 +156,7 @@ const App = () => {
       newFunc = eval('(' + newOutput + ')'); // Never use eval on an app that needs security!
     } catch (err) {
       if (err instanceof SyntaxError) {
-        newFunc = 'ERROR';
+        newFunc = 'ERROR ' + newOutput;
       }
     }
 
@@ -162,6 +166,7 @@ const App = () => {
   const saveNote = async () => {
     const newOutput = output.slice();
     const newNote = removeOvertones(currentNode.slice());
+    console.log('SAVE NOTE CALLED ', newOutput, newNote)
     if (newNote !== '') {
       if (newNote === 'shift') {
         if (!shift) {
@@ -196,6 +201,7 @@ const App = () => {
   }
 
   const clearRecording = () => {
+    console.log('CLEAR RECORDING CALLED');
     setRecord(false);
     setRecording('record');
     setStart(false);
