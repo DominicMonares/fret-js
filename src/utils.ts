@@ -1,5 +1,6 @@
 import notes from '../notes.json';
 
+
 export const findFundamentalFreq = (buffer: any, sampleRate: number) => { // TEMP ANY, MAKE TYPE
   const n = 1024
   let bestRate = 0
@@ -39,21 +40,15 @@ export const findClosestNote = (freq: number) => { // TEMP ANY, MAKE TYPE
   return [notes[low], low];
 }
 
-export const noteWithinRange = (index: number) => index >= 25 && index <= 76 ? true : false;
-
 export const translateFreq = (shift: boolean, freq: any, batch: any) => { // TEMP ANY
   const notePair = findClosestNote(freq);
   const noteNode: any = notePair[0]; // TEMP ANY
   const noteIndex = notePair[1];
-  if (noteWithinRange(noteIndex as number)) { // TEMP AS, FIGURE OUT WHAT'S GOING ON HERE
-    const newCurrentBatch = batch;
-    let noteKey;
-    !shift ? noteKey = noteNode['keys'][0] : noteKey = noteNode['keys'][1];
-    newCurrentBatch.push([noteKey, noteIndex]);
-    return newCurrentBatch;
-  }
-
-  return batch;
+  const newCurrentBatch = batch;
+  let noteKey;
+  !shift ? noteKey = noteNode['keys'][0] : noteKey = noteNode['keys'][1];
+  newCurrentBatch.push([noteKey, noteIndex]);
+  return newCurrentBatch;
 }
 
 export const removeOvertones = (batch: any): string | number | null => { // TEMP ANY, MAKE TYPE

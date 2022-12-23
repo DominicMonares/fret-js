@@ -18,8 +18,7 @@ const context = new AudioContext;
 const analyser = new AnalyserNode(context, { fftSize: 2048 });
 
 const App = () => {
-  const [recording, setRecording] = useState<boolean>(true);
-  const [recordingClass, setRecordingClass] = useState<'record' | 'recording'>('record');
+  const [recording, setRecording] = useState<boolean>(false);
   const [shift, setShift] = useState<boolean>(false);
   const [output, setOutput] = useState<any[]>([]); // TEMP ANY
   const [func, setFunc] = useState<string>('');
@@ -33,8 +32,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // handle state updates here
-  });
+    // recording ? startRecording([]) : stopRecording();
+  }, [recording, shift, output, func]);
 
   const getGuitar = () => {
     return navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } }); // Make note here
@@ -51,16 +50,9 @@ const App = () => {
 
   const saveNote = async (note: any) => { // TEMP ANY
     const newOutput = output.slice();
-    console.log('SAVE NOTE CALLED ', newOutput, note)
     if (note !== '') {
       if (note === 'shift') {
-        if (!shift) {
-          setShift(true);
-          setOutput(() => newOutput);
-        } else {
-          setShift(false);
-          setOutput(() => newOutput);
-        }
+        setShift(prev => !prev);
       } else if (note === 'delete') {
         const deleted = newOutput.pop();
         setOutput(newOutput);
@@ -70,7 +62,7 @@ const App = () => {
       } else {
         newOutput.push(note);
         setOutput(newOutput);
-        console.log('OUTPUT ', output);
+        console.log('OUTPUT ', newOutput);
       }
     }
   }
@@ -81,24 +73,20 @@ const App = () => {
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      if (fundamentalFreq < 1337) { // 1337 is ceiling for E6
-        if (fundamentalFreq === -1 && batch.length) {
-          console.log('ASDF ', batch, removeOvertones(batch))
-          const note = removeOvertones(batch);
-          saveNote(note);
-          // Update state and use second useEffect
-          window.requestAnimationFrame(() => startRecording([]));
-        } else {
-          const newBatch = translateFreq(shift, fundamentalFreq, batch);
-          window.requestAnimationFrame(() => startRecording(newBatch));
-        }
+      if (fundamentalFreq > 69 && fundamentalFreq < 1337) { // 69 is floor for C#2 and 1337 is ceiling for E6
+        const newBatch = translateFreq(shift, fundamentalFreq, batch);
+        window.requestAnimationFrame(() => startRecording(newBatch));
+      } else if (fundamentalFreq === -1) {
+        if (batch.length) saveNote(removeOvertones(batch));
+        window.requestAnimationFrame(() => startRecording([]));
+      } else {
+        window.requestAnimationFrame(() => startRecording(batch));
       }
     }
   }
 
   const stopRecording = async () => { // TEMP ANY
     setRecording(false);
-    setRecordingClass('record');
     const newOutput = output.join('');
     let newFunc;
 
@@ -116,7 +104,6 @@ const App = () => {
   const clearRecording = () => {
     console.log('CLEAR RECORDING CALLED');
     setRecording(false);
-    setRecordingClass('record');
     setShift(false);
     setOutput([]);
     setFunc('');
@@ -129,14 +116,21 @@ const App = () => {
           <img src={logo} width="205" height="63" alt="Logo" />
         </div>
         <div className="buttons">
-          <button className={recordingClass} onClick={() => {
-            setRecording(true);
-            setRecordingClass('recording');
-            startRecording([]);
-          }}>{
-            recordingClass === 'record' ? 'Start Recording' : 'Recording!'
-          }</button>
-          <button className="stop-record" onClick={stopRecording}>Stop Recording</button>
+          <button
+            className={recording ? "recording" : "record"}
+            onClick={() => {
+              setRecording(true);
+              startRecording([]);
+            }}
+          >
+            {recording ? "Recording!" : "Start Recording"}
+          </button>
+          <button
+            className="stop-record"
+            onClick={() => setRecording(false)}
+          >
+              Stop Recording
+          </button>
           <button className="clear-record" onClick={clearRecording}>Clear Recording</button>
         </div>
         <div className="workspace">
