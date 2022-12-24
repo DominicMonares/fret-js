@@ -28,7 +28,7 @@ const App = () => {
     navigator.getUserMedia(
       { audio: true },
       async () => await setupContext(),
-      () => console.log('CONTEXT SETUP FAILED')
+      () => console.error('Context setup failed')
     );
   }, []);
 
@@ -36,10 +36,10 @@ const App = () => {
     if (recording) {
       startRecording([]);
     } else if (!recording && recordingStarted) {
-      stopRecording();
       setRecordingStarted(false);
+      stopRecording();
     }
-  }, [recording, shift, output]);
+  });
 
   const setupContext = async () => {
     if (context.state === 'suspended') await context.resume();
@@ -60,11 +60,10 @@ const App = () => {
         setOutput(newOutput);
         console.log(`${deleted} DELETED`);
       } else if (note === 'return') {
-        await stopRecording();
+        setRecording(false);
       } else {
         newOutput.push(note);
         setOutput(newOutput);
-        console.log('OUTPUT 1 ', newOutput);
       }
     }
   }
@@ -79,8 +78,11 @@ const App = () => {
         const newBatch = translateFreq(shift, fundamentalFreq, batch);
         window.requestAnimationFrame(() => startRecording(newBatch));
       } else if (fundamentalFreq === -1) {
-        if (batch.length) saveNote(removeOvertones(batch));
-        window.requestAnimationFrame(() => startRecording([]));
+        if (batch.length) {
+          await saveNote(removeOvertones(batch));
+        } else {
+          window.requestAnimationFrame(() => startRecording([]));
+        }
       } else {
         window.requestAnimationFrame(() => startRecording(batch));
       }
@@ -88,25 +90,21 @@ const App = () => {
   }
 
   const stopRecording = async () => { // TEMP ANY
-    console.log('STOP RECORDING CALLED')
-    setRecording(false);
     const newOutput = output.join('');
     let newFunc;
 
     try {
       newFunc = eval('(' + newOutput + ')'); // Never use eval on an app that needs security!
-    } catch (err) {
-      if (err instanceof SyntaxError) {
-        newFunc = 'ERROR ' + newOutput;
-      }
+    } catch (err: any) { // TEMP ANY
+      newFunc = err.toString();
     }
 
     setFunc(newFunc);
   }
 
   const clearRecording = () => {
-    console.log('CLEAR RECORDING CALLED');
     setRecording(false);
+    setRecordingStarted(false);
     setShift(false);
     setOutput([]);
     setFunc('');
