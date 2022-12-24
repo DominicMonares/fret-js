@@ -74,7 +74,7 @@ const App = () => {
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      if (fundamentalFreq > 69 && fundamentalFreq < 1337) { // 69 is floor for C#2 and 1337 is ceiling for E6
+      if (fundamentalFreq > 69.3 && fundamentalFreq < 1319) { // 69.3 is floor for C#2 and 1319 is ceiling for E6
         const newBatch = translateFreq(shift, fundamentalFreq, batch);
         window.requestAnimationFrame(() => startRecording(newBatch));
       } else if (fundamentalFreq === -1) {
