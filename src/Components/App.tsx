@@ -19,6 +19,7 @@ const analyser = new AnalyserNode(context, { fftSize: 2048 });
 
 const App = () => {
   const [recording, setRecording] = useState<boolean>(false);
+  const [recordingStarted, setRecordingStarted] = useState<boolean>(false);
   const [shift, setShift] = useState<boolean>(false);
   const [output, setOutput] = useState<any[]>([]); // TEMP ANY
   const [func, setFunc] = useState<string>('');
@@ -32,17 +33,18 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // recording ? startRecording([]) : stopRecording();
-  }, [recording, shift, output, func]);
-
-  const getGuitar = () => {
-    return navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } }); // Make note here
-  }
+    if (recording) {
+      startRecording([]);
+    } else if (!recording && recordingStarted) {
+      stopRecording();
+      setRecordingStarted(false);
+    }
+  }, [recording, shift, output]);
 
   const setupContext = async () => {
     if (context.state === 'suspended') await context.resume();
-    const guitar = await getGuitar(); // media stream
-    const source = context.createMediaStreamSource(guitar); // media stream audio source node
+    const guitar = await navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } });
+    const source = context.createMediaStreamSource(guitar); // media stream audio source
     source
       .connect(analyser)
       .connect(context.destination);
@@ -62,7 +64,7 @@ const App = () => {
       } else {
         newOutput.push(note);
         setOutput(newOutput);
-        console.log('OUTPUT ', newOutput);
+        console.log('OUTPUT 1 ', newOutput);
       }
     }
   }
@@ -86,6 +88,7 @@ const App = () => {
   }
 
   const stopRecording = async () => { // TEMP ANY
+    console.log('STOP RECORDING CALLED')
     setRecording(false);
     const newOutput = output.join('');
     let newFunc;
@@ -120,7 +123,7 @@ const App = () => {
             className={recording ? "recording" : "record"}
             onClick={() => {
               setRecording(true);
-              startRecording([]);
+              setRecordingStarted(true);
             }}
           >
             {recording ? "Recording!" : "Start Recording"}
@@ -129,7 +132,7 @@ const App = () => {
             className="stop-record"
             onClick={() => setRecording(false)}
           >
-              Stop Recording
+            Stop Recording
           </button>
           <button className="clear-record" onClick={clearRecording}>Clear Recording</button>
         </div>
