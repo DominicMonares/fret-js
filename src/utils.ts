@@ -54,7 +54,7 @@ export const translateFreq = (shift: boolean, freq: any, batch: any) => { // TEM
 export const removeOvertones = (batch: any): string | number | null => { // TEMP ANY, MAKE TYPE
   let noteNode = [null, 0];
   for (let i = 0; i < batch.length; i++) {
-    if (noteNode[1] !== null && batch[i][1] > noteNode[1]) {
+    if (noteNode[1] !== null && batch[i][1] >= noteNode[1]) {
       noteNode = [batch[i][0], batch[i][1]];
     }
   }
