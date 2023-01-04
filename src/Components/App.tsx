@@ -126,12 +126,6 @@ const App = () => {
           >
             {recording ? "Recording!" : "Start Recording"}
           </button>
-          <button
-            className="stop-record"
-            onClick={() => setRecording(false)}
-          >
-            Stop Recording
-          </button>
           <button className="clear-record" onClick={clearRecording}>Clear Recording</button>
         </div>
         <div className="workspace">
