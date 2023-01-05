@@ -9,7 +9,7 @@
   },
   {
     "note": "D2",
-    "frequency": 75,
+    "frequency": 74,
     "keys": [
       "\n",
       "\n"
@@ -17,7 +17,7 @@
   },
   {
     "note": "D#2",
-    "frequency": 80,
+    "frequency": 79,
     "keys": [
       "shift",
       "shift"
@@ -57,7 +57,7 @@
   },
   {
     "note": "G#2",
-    "frequency": 106,
+    "frequency": 105,
     "keys": [
       "e",
       "E"
@@ -97,7 +97,7 @@
   },
   {
     "note": "C#3",
-    "frequency": 139,
+    "frequency": 140,
     "keys": [
       "j",
       "J"
@@ -169,7 +169,7 @@
   },
   {
     "note": "A#3",
-    "frequency": 233,
+    "frequency": 234,
     "keys": [
       "s",
       "S"
@@ -201,7 +201,7 @@
   },
   {
     "note": "D4",
-    "frequency": 295,
+    "frequency": 294,
     "keys": [
       "w",
       "W"
@@ -265,7 +265,7 @@
   },
   {
     "note": "A#4",
-    "frequency": 464,
+    "frequency": 468,
     "keys": [
       "5",
       "%"
@@ -321,7 +321,7 @@
   },
   {
     "note": "F5",
-    "frequency": 707.98,
+    "frequency": 700,
     "keys": [
       "=",
       "+"
@@ -329,7 +329,7 @@
   },
   {
     "note": "F#5",
-    "frequency": 750.08,
+    "frequency": 747,
     "keys": [
       "[",
       "{"
@@ -337,7 +337,7 @@
   },
   {
     "note": "G5",
-    "frequency": 794.68,
+    "frequency": 787,
     "keys": [
       "]",
       "}"
@@ -345,7 +345,7 @@
   },
   {
     "note": "G#5",
-    "frequency": 841.94,
+    "frequency": 832,
     "keys": [
       "\\",
       "|"
@@ -353,7 +353,7 @@
   },
   {
     "note": "A5",
-    "frequency": 892,
+    "frequency": 882,
     "keys": [
       ";",
       ":"
@@ -361,7 +361,7 @@
   },
   {
     "note": "A#5",
-    "frequency": 945.04,
+    "frequency": 938,
     "keys": [
       "'",
       "\""
@@ -369,7 +369,7 @@
   },
   {
     "note": "B5",
-    "frequency": 1001.24,
+    "frequency": 1002,
     "keys": [
       ",",
       "<"
@@ -377,7 +377,7 @@
   },
   {
     "note": "C6",
-    "frequency": 1060.77,
+    "frequency": 1050,
     "keys": [
       ".",
       ">"
@@ -385,7 +385,7 @@
   },
   {
     "note": "C#6",
-    "frequency": 1123.85,
+    "frequency": 1130,
     "keys": [
       "/",
       "?"
@@ -393,7 +393,7 @@
   },
   {
     "note": "D6",
-    "frequency": 1190.68,
+    "frequency": 1191,
     "keys": [
       "`",
       "~"
@@ -401,7 +401,7 @@
   },
   {
     "note": "D#6",
-    "frequency": 1261.48,
+    "frequency": 1260,
     "keys": [
       "delete",
       "delete"
@@ -409,7 +409,7 @@
   },
   {
     "note": "E6",
-    "frequency": 1336.49,
+    "frequency": 1336,
     "keys": [
       "return",
       "return"
