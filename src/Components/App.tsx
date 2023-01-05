@@ -56,9 +56,8 @@ const App = () => {
       if (note === 'shift') {
         setShift(prev => !prev);
       } else if (note === 'delete') {
-        const deleted = newOutput.pop();
+        newOutput.pop();
         setOutput(newOutput);
-        console.log(`${deleted} DELETED`);
       } else if (note === 'return') {
         setRecording(false);
       } else {
@@ -68,18 +67,26 @@ const App = () => {
     }
   }
 
-  const startRecording = async (batch: any[]) => { // TEMP ANY
+  const startRecording = async (batch: any[], deadSignal?: number) => { // TEMP ANY
     if (recording) {
       // Detects pitch
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      if (fundamentalFreq > 69.3 && fundamentalFreq < 1319) { // 69.3 is floor for C#2 and 1319 is ceiling for E6
-        const newBatch = translateFreq(shift, fundamentalFreq, batch);
+      // 67 is floor for C#2 and 1338 is ceiling for E6
+      console.log('FREQ ', fundamentalFreq)
+      if (fundamentalFreq > 67 && fundamentalFreq < 1338) {
+        const newBatch = batch.slice();
+        newBatch.push(translateFreq(shift, fundamentalFreq));
         window.requestAnimationFrame(() => startRecording(newBatch));
       } else if (fundamentalFreq === -1) {
-        if (batch.length) {
+        // Prevent straggler frequencies
+        !deadSignal ? deadSignal = 1 : deadSignal++;
+
+        if (batch.length && deadSignal === 2) {
           await saveNote(removeOvertones(batch));
+        } else if (batch.length && deadSignal < 2) {
+          window.requestAnimationFrame(() => startRecording(batch, deadSignal));
         } else {
           window.requestAnimationFrame(() => startRecording([]));
         }

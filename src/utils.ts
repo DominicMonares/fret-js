@@ -37,7 +37,7 @@ export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
     const inHighRange = targetFreq <= highRange;
 
     if (inLowRange && inHighRange) {
-      return [notes[pivot], pivot];
+      return notes[pivot];
     } else if (targetFreq < lowRange) {
       end = pivot - 1;
       pivot = Math.floor((start + end) / 2);
@@ -47,27 +47,24 @@ export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
     }
   }
 
-  return [notes[start], start];
+  return notes[start];
 }
 
-export const translateFreq = (shift: boolean, freq: any, batch: any) => { // TEMP ANY
-  const notePair = findClosestNote(freq);
-  const noteNode: any = notePair[0]; // TEMP ANY
-  const noteIndex = notePair[1];
-  const newCurrentBatch = batch;
-  let noteKey;
-  !shift ? noteKey = noteNode['keys'][0] : noteKey = noteNode['keys'][1];
-  newCurrentBatch.push([noteKey, noteIndex]);
-  return newCurrentBatch;
+export const translateFreq = (shift: boolean, freq: any) => { // TEMP ANY
+  const noteNode = findClosestNote(freq);
+  return !shift ? noteNode['keys'][0] : noteNode['keys'][1];
 }
 
-export const removeOvertones = (batch: any): string | number | null => { // TEMP ANY, MAKE TYPE
-  let noteNode = [null, 0];
-  for (let i = 0; i < batch.length; i++) {
-    if (noteNode[1] !== null && batch[i][1] >= noteNode[1]) {
-      noteNode = [batch[i][0], batch[i][1]];
-    }
+export const removeOvertones = (batch: any): any => { // TEMP ANY, MAKE TYPE
+  // seems to receive mostly undertones, need to figure out how to handle this for
+  // higher tones without screwing up the lower tones
+  const tones: any = {}; // TEMP ANY
+  batch.forEach((t: string) => !tones[t] ? tones[t] = 1 : tones[t]++);
+
+  let mostTones = ['', 0];
+  for (let t in tones) {
+    if (tones[t] > mostTones[1]) mostTones = [t, tones[t]];
   }
 
-  return noteNode[0];
+  return mostTones[0];
 }
