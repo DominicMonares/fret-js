@@ -25,19 +25,29 @@ export const findFundamentalFreq = (buffer: any, sampleRate: number) => { // TEM
   return bestRate > 0.0025 ? sampleRate / bestKFrame : -1;
 }
 
-export const findClosestNote = (freq: number) => { // TEMP ANY, MAKE TYPE
-  let low = -1
-  let high = notes.length;
-  while (high - low > 1) {
-    let pivot = Math.round((low + high) / 2);
-    notes[pivot].frequency <= freq ? low = pivot : high = pivot;
+export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
+  let start = 0;
+  let end = notes.length - 1;
+  let pivot = Math.floor((start + end) / 2);
+
+  while (end > start) {
+    const lowRange = notes[pivot]['frequency'] - 2;
+    const inLowRange = targetFreq >= lowRange;
+    const highRange = notes[pivot]['frequency'] + 2;
+    const inHighRange = targetFreq <= highRange;
+
+    if (inLowRange && inHighRange) {
+      return [notes[pivot], pivot];
+    } else if (targetFreq < lowRange) {
+      end = pivot - 1;
+      pivot = Math.floor((start + end) / 2);
+    } else if (targetFreq > highRange) {
+      start = pivot + 1;
+      pivot = Math.floor((start + end) / 2);
+    }
   }
 
-  if (Math.abs(notes[high]?.frequency - freq) <= Math.abs(notes[low]?.frequency - freq)) {
-    return [notes[high], high];
-  }
-
-  return [notes[low], low];
+  return [notes[start], start];
 }
 
 export const translateFreq = (shift: boolean, freq: any, batch: any) => { // TEMP ANY
