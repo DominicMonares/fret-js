@@ -73,11 +73,10 @@ const App = () => {
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      // 67 is floor for C#2 and 1338 is ceiling for E6
-      console.log('FREQ ', fundamentalFreq)
-      if (fundamentalFreq > 67 && fundamentalFreq < 1338) {
+      // 67 is floor for C#2 and 1342 is ceiling for E6
+      if (fundamentalFreq > 67 && fundamentalFreq < 1342) {
         const newBatch = batch.slice();
-        newBatch.push(translateFreq(shift, fundamentalFreq));
+        newBatch.push([translateFreq(shift, fundamentalFreq), fundamentalFreq]);
         window.requestAnimationFrame(() => startRecording(newBatch));
       } else if (fundamentalFreq === -1) {
         // Prevent straggler frequencies
