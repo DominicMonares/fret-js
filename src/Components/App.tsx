@@ -13,8 +13,7 @@ import fretKey from '../../assets/key.png';
 import fret24 from '../../assets/24_fret.png';
 
 
-const AudioContext = window.AudioContext;
-const context = new AudioContext;
+const context = new window.AudioContext;
 const analyser = new AnalyserNode(context, { fftSize: 2048 });
 
 const App = () => {
@@ -30,7 +29,7 @@ const App = () => {
       async () => await setupContext(),
       () => console.error('Context setup failed')
     );
-  }, []);
+  });
 
   useEffect(() => {
     if (recording) {
@@ -45,12 +44,10 @@ const App = () => {
     if (context.state === 'suspended') await context.resume();
     const guitar = await navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } });
     const source = context.createMediaStreamSource(guitar); // media stream audio source
-    source
-      .connect(analyser)
-      .connect(context.destination);
+    source.connect(analyser).connect(context.destination);
   }
 
-  const saveNote = async (note: any) => { // TEMP ANY
+  const saveNote = (note: any) => { // TEMP ANY
     const newOutput = output.slice();
     if (note !== '') {
       if (note === 'shift') {
@@ -67,14 +64,15 @@ const App = () => {
     }
   }
 
-  const startRecording = async (batch: any[], deadSignal?: number) => { // TEMP ANY
+  const startRecording = (batch: any[], deadSignal?: number) => { // TEMP ANY
     if (recording) {
       // Detects pitch
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      // 67 is floor for C#2 and 1342 is ceiling for E6
-      if (fundamentalFreq > 67 && fundamentalFreq < 1342) {
+      console.log('FREQ  ', fundamentalFreq)
+      // 59 is floor for B1 and 1191 is ceiling for D6
+      if (fundamentalFreq > 59 && fundamentalFreq < 1191) {
         const newBatch = batch.slice();
         newBatch.push([translateFreq(shift, fundamentalFreq), fundamentalFreq]);
         window.requestAnimationFrame(() => startRecording(newBatch));
@@ -83,7 +81,7 @@ const App = () => {
         !deadSignal ? deadSignal = 1 : deadSignal++;
 
         if (batch.length && deadSignal === 2) {
-          await saveNote(removeOvertones(batch));
+          saveNote(removeOvertones(batch));
         } else if (batch.length && deadSignal < 2) {
           window.requestAnimationFrame(() => startRecording(batch, deadSignal));
         } else {
@@ -95,7 +93,7 @@ const App = () => {
     }
   }
 
-  const stopRecording = async () => { // TEMP ANY
+  const stopRecording = () => { // TEMP ANY
     const newOutput = output.join('');
     let newFunc;
 
