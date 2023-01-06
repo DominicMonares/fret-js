@@ -31,9 +31,10 @@ export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
   let pivot = Math.floor((start + end) / 2);
 
   while (end > start) {
-    const lowRange = notes[pivot]['frequency'] - 2;
+    const rangeAmount = pivot < 19 ? 2 : pivot < 30 ? 6 : pivot < 40 ? 10 : 20 // Higher freqs have higher ranges
+    const lowRange = notes[pivot]['frequency'] - rangeAmount;
     const inLowRange = targetFreq >= lowRange;
-    const highRange = notes[pivot]['frequency'] + 2;
+    const highRange = notes[pivot]['frequency'] + rangeAmount;
     const inHighRange = targetFreq <= highRange;
 
     if (inLowRange && inHighRange) {
@@ -56,14 +57,19 @@ export const translateFreq = (shift: boolean, freq: any) => { // TEMP ANY
 }
 
 export const removeOvertones = (batch: any): any => { // TEMP ANY, MAKE TYPE
-  // seems to receive mostly undertones, need to figure out how to handle this for
-  // higher tones without screwing up the lower tones
   const tones: any = {}; // TEMP ANY
-  batch.forEach((t: string) => !tones[t] ? tones[t] = 1 : tones[t]++);
+  batch.forEach((t: string) => {
+    !tones[t[0]] ? tones[t[0]] = { count: 1, freq: t[1] } : tones[t[0]]['count']++;
+  });
 
-  let mostTones = ['', 0];
+  let mostTones: any[] = ['', 0, 0]; // TEMP ANY | key, count, freq
   for (let t in tones) {
-    if (tones[t] > mostTones[1]) mostTones = [t, tones[t]];
+    const currentFreq = tones[t]['freq'];
+    const storedFreq = mostTones[2];
+    const higherFreq = currentFreq > storedFreq && currentFreq >= 4;
+    const lowerFreq = currentFreq < storedFreq;
+    const higherCount = tones[t]['count'] > mostTones[1];
+    if ((higherCount && !lowerFreq) || higherFreq) mostTones = [t, tones[t]['count'], tones[t]['freq']];
   }
 
   return mostTones[0];
