@@ -42,9 +42,19 @@ const App = () => {
 
   const setupContext = async () => {
     if (context.state === 'suspended') await context.resume();
+
     const guitar = await navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } });
     const source = context.createMediaStreamSource(guitar); // media stream audio source
-    source.connect(analyser).connect(context.destination);
+
+    const compressor = context.createDynamicsCompressor();
+    compressor.threshold.setValueAtTime(-50, context.currentTime);
+    compressor.knee.setValueAtTime(40, context.currentTime);
+    compressor.ratio.setValueAtTime(12, context.currentTime);
+    compressor.attack.setValueAtTime(0, context.currentTime);
+    compressor.release.setValueAtTime(0.25, context.currentTime);
+
+    source.connect(analyser).connect(compressor);
+    compressor.connect(context.destination);
   }
 
   const saveNote = (note: any) => { // TEMP ANY
@@ -94,7 +104,7 @@ const App = () => {
   }
 
   const stopRecording = () => { // TEMP ANY
-    context.suspend();
+    // context.suspend();
     const newOutput = output.join('');
     let newFunc;
 
