@@ -29,7 +29,7 @@ const App = () => {
       async () => await setupContext(),
       () => console.error('Context setup failed')
     );
-  });
+  }, []);
 
   useEffect(() => {
     if (recording) {
@@ -94,6 +94,7 @@ const App = () => {
   }
 
   const stopRecording = () => { // TEMP ANY
+    context.suspend();
     const newOutput = output.join('');
     let newFunc;
 
