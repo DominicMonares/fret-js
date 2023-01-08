@@ -2,7 +2,7 @@
   {
     "note": "B1",
     "frequency": 61,
-    "keys": [
+    "chars": [
       " ",
       " "
     ]
@@ -10,7 +10,7 @@
   {
     "note": "C2",
     "frequency": 65,
-    "keys": [
+    "chars": [
       "\n",
       "\n"
     ]
@@ -18,7 +18,7 @@
   {
     "note": "C#2",
     "frequency": 71,
-    "keys": [
+    "chars": [
       "shift",
       "shift"
     ]
@@ -26,7 +26,7 @@
   {
     "note": "D2",
     "frequency": 75,
-    "keys": [
+    "chars": [
       "a",
       "A"
     ]
@@ -34,7 +34,7 @@
   {
     "note": "D#2",
     "frequency": 79,
-    "keys": [
+    "chars": [
       "b",
       "B"
     ]
@@ -42,7 +42,7 @@
   {
     "note": "E2",
     "frequency": 84,
-    "keys": [
+    "chars": [
       "c",
       "C"
     ]
@@ -50,7 +50,7 @@
   {
     "note": "F2",
     "frequency": 89,
-    "keys": [
+    "chars": [
       "d",
       "D"
     ]
@@ -58,7 +58,7 @@
   {
     "note": "F#2",
     "frequency": 94,
-    "keys": [
+    "chars": [
       "e",
       "E"
     ]
@@ -66,7 +66,7 @@
   {
     "note": "G2",
     "frequency": 100,
-    "keys": [
+    "chars": [
       "f",
       "F"
     ]
@@ -74,7 +74,7 @@
   {
     "note": "G#2",
     "frequency": 105,
-    "keys": [
+    "chars": [
       "g",
       "G"
     ]
@@ -82,7 +82,7 @@
   {
     "note": "A2",
     "frequency": 110,
-    "keys": [
+    "chars": [
       "h",
       "H"
     ]
@@ -90,7 +90,7 @@
   {
     "note": "A#2",
     "frequency": 117,
-    "keys": [
+    "chars": [
       "i",
       "I"
     ]
@@ -98,7 +98,7 @@
   {
     "note": "B2",
     "frequency": 124,
-    "keys": [
+    "chars": [
       "j",
       "J"
     ]
@@ -106,7 +106,7 @@
   {
     "note": "C3",
     "frequency": 132,
-    "keys": [
+    "chars": [
       "k",
       "K"
     ]
@@ -114,7 +114,7 @@
   {
     "note": "C#3",
     "frequency": 140,
-    "keys": [
+    "chars": [
       "l",
       "L"
     ]
@@ -122,7 +122,7 @@
   {
     "note": "D3",
     "frequency": 147,
-    "keys": [
+    "chars": [
       "m",
       "M"
     ]
@@ -130,7 +130,7 @@
   {
     "note": "D#3",
     "frequency": 157,
-    "keys": [
+    "chars": [
       "n",
       "N"
     ]
@@ -138,7 +138,7 @@
   {
     "note": "E3",
     "frequency": 166,
-    "keys": [
+    "chars": [
       "o",
       "O"
     ]
@@ -146,7 +146,7 @@
   {
     "note": "F3",
     "frequency": 177,
-    "keys": [
+    "chars": [
       "p",
       "P"
     ]
@@ -154,7 +154,7 @@
   {
     "note": "F#3",
     "frequency": 187,
-    "keys": [
+    "chars": [
       "q",
       "Q"
     ]
@@ -162,7 +162,7 @@
   {
     "note": "G3",
     "frequency": 197,
-    "keys": [
+    "chars": [
       "r",
       "R"
     ]
@@ -170,7 +170,7 @@
   {
     "note": "G#3",
     "frequency": 208,
-    "keys": [
+    "chars": [
       "s",
       "S"
     ]
@@ -178,7 +178,7 @@
   {
     "note": "A3",
     "frequency": 221,
-    "keys": [
+    "chars": [
       "t",
       "T"
     ]
@@ -186,7 +186,7 @@
   {
     "note": "A#3",
     "frequency": 234,
-    "keys": [
+    "chars": [
       "u",
       "U"
     ]
@@ -194,7 +194,7 @@
   {
     "note": "B3",
     "frequency": 248,
-    "keys": [
+    "chars": [
       "v",
       "V"
     ]
@@ -202,7 +202,7 @@
   {
     "note": "C4",
     "frequency": 263,
-    "keys": [
+    "chars": [
       "w",
       "W"
     ]
@@ -210,7 +210,7 @@
   {
     "note": "C#4",
     "frequency": 278,
-    "keys": [
+    "chars": [
       "x",
       "X"
     ]
@@ -218,7 +218,7 @@
   {
     "note": "D4",
     "frequency": 294,
-    "keys": [
+    "chars": [
       "y",
       "Y"
     ]
@@ -226,7 +226,7 @@
   {
     "note": "D#4",
     "frequency": 313,
-    "keys": [
+    "chars": [
       "z",
       "Z"
     ]
@@ -234,7 +234,7 @@
   {
     "note": "E4",
     "frequency": 330,
-    "keys": [
+    "chars": [
       "1",
       "!"
     ]
@@ -242,7 +242,7 @@
   {
     "note": "F4",
     "frequency": 349,
-    "keys": [
+    "chars": [
       "2",
       "@"
     ]
@@ -250,7 +250,7 @@
   {
     "note": "F#4",
     "frequency": 369,
-    "keys": [
+    "chars": [
       "3",
       "#"
     ]
@@ -258,7 +258,7 @@
   {
     "note": "G4",
     "frequency": 392,
-    "keys": [
+    "chars": [
       "4",
       "$"
     ]
@@ -266,7 +266,7 @@
   {
     "note": "G#4",
     "frequency": 416,
-    "keys": [
+    "chars": [
       "5",
       "%"
     ]
@@ -274,7 +274,7 @@
   {
     "note": "A4",
     "frequency": 441,
-    "keys": [
+    "chars": [
       "6",
       "^"
     ]
@@ -282,7 +282,7 @@
   {
     "note": "A#4",
     "frequency": 468,
-    "keys": [
+    "chars": [
       "7",
       "&"
     ]
@@ -290,7 +290,7 @@
   {
     "note": "B4",
     "frequency": 495,
-    "keys": [
+    "chars": [
       "8",
       "*"
     ]
@@ -298,7 +298,7 @@
   {
     "note": "C5",
     "frequency": 525,
-    "keys": [
+    "chars": [
       "9",
       "("
     ]
@@ -306,7 +306,7 @@
   {
     "note": "C#5",
     "frequency": 558,
-    "keys": [
+    "chars": [
       "0",
       ")"
     ]
@@ -314,7 +314,7 @@
   {
     "note": "D5",
     "frequency": 588,
-    "keys": [
+    "chars": [
       "-",
       "_"
     ]
@@ -322,7 +322,7 @@
   {
     "note": "D#5",
     "frequency": 621,
-    "keys": [
+    "chars": [
       "=",
       "+"
     ]
@@ -330,7 +330,7 @@
   {
     "note": "E5",
     "frequency": 659,
-    "keys": [
+    "chars": [
       "[",
       "{"
     ]
@@ -338,7 +338,7 @@
   {
     "note": "F5",
     "frequency": 700,
-    "keys": [
+    "chars": [
       "]",
       "}"
     ]
@@ -346,7 +346,7 @@
   {
     "note": "F#5",
     "frequency": 747,
-    "keys": [
+    "chars": [
       "\\",
       "|"
     ]
@@ -354,7 +354,7 @@
   {
     "note": "G5",
     "frequency": 787,
-    "keys": [
+    "chars": [
       ";",
       ":"
     ]
@@ -362,7 +362,7 @@
   {
     "note": "G#5",
     "frequency": 832,
-    "keys": [
+    "chars": [
       "'",
       "\""
     ]
@@ -370,7 +370,7 @@
   {
     "note": "A5",
     "frequency": 882,
-    "keys": [
+    "chars": [
       ",",
       "<"
     ]
@@ -378,7 +378,7 @@
   {
     "note": "A#5",
     "frequency": 938,
-    "keys": [
+    "chars": [
       ".",
       ">"
     ]
@@ -386,7 +386,7 @@
   {
     "note": "B5",
     "frequency": 1002,
-    "keys": [
+    "chars": [
       "/",
       "?"
     ]
@@ -394,7 +394,7 @@
   {
     "note": "C6",
     "frequency": 1050,
-    "keys": [
+    "chars": [
       "`",
       "~"
     ]
@@ -402,7 +402,7 @@
   {
     "note": "C#6",
     "frequency": 1130,
-    "keys": [
+    "chars": [
       "delete",
       "delete"
     ]
@@ -410,7 +410,7 @@
   {
     "note": "D6",
     "frequency": 1191,
-    "keys": [
+    "chars": [
       "return",
       "return"
     ]
