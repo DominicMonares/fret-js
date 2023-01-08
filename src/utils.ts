@@ -1,7 +1,7 @@
 import notes from '../notes.json';
+import { BatchItem, Batch, MostTones, Tones } from './types';
 
-
-export const findFundamentalFreq = (buffer: any, sampleRate: number) => { // TEMP ANY, MAKE TYPE
+export const findFundamentalFreq = (buffer: Uint8Array, sampleRate: number) => {
   const n = 1024
   let bestRate = 0
   let bestKFrame = -1;
@@ -25,7 +25,7 @@ export const findFundamentalFreq = (buffer: any, sampleRate: number) => { // TEM
   return bestRate > 0.0025 ? sampleRate / bestKFrame : -1;
 }
 
-export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
+export const findClosestNote = (targetFreq: number) => {
   let start = 0;
   let end = notes.length - 1;
   let pivot = Math.floor((start + end) / 2);
@@ -51,18 +51,18 @@ export const findClosestNote = (targetFreq: number) => { // TEMP ANY, MAKE TYPE
   return notes[start];
 }
 
-export const translateFreq = (shift: boolean, freq: any) => { // TEMP ANY
+export const translateFreq = (shift: boolean, freq: number) => {
   const noteNode = findClosestNote(freq);
-  return !shift ? noteNode['keys'][0] : noteNode['keys'][1];
+  return !shift ? noteNode['chars'][0] : noteNode['chars'][1];
 }
 
-export const removeOvertones = (batch: any): any => { // TEMP ANY, MAKE TYPE
-  const tones: any = {}; // TEMP ANY
-  batch.forEach((t: string) => {
+export const removeOvertones = (batch: Batch) => {
+  const tones: Tones = {};
+  batch.forEach((t: BatchItem) => {
     !tones[t[0]] ? tones[t[0]] = { count: 1, freq: t[1] } : tones[t[0]]['count']++;
   });
 
-  let mostTones: any[] = ['', 0, 0]; // TEMP ANY | key, count, freq
+  let mostTones: MostTones = ['', 0, 0]; // Char, Count, Freq
   for (let t in tones) {
     const currentFreq = tones[t]['freq'];
     const storedFreq = mostTones[2];

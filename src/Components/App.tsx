@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Notes } from '../types';
+import { Batch } from '../types';
 import {
   findFundamentalFreq,
   removeOvertones,
@@ -20,7 +20,7 @@ const App = () => {
   const [recording, setRecording] = useState<boolean>(false);
   const [recordingStarted, setRecordingStarted] = useState<boolean>(false);
   const [shift, setShift] = useState<boolean>(false);
-  const [output, setOutput] = useState<any[]>([]); // TEMP ANY
+  const [output, setOutput] = useState<string[]>([]);
   const [func, setFunc] = useState<string>('');
 
   useEffect(() => {
@@ -43,7 +43,15 @@ const App = () => {
   const setupContext = async () => {
     if (context.state === 'suspended') await context.resume();
 
-    const guitar = await navigator.mediaDevices.getUserMedia({ audio: { latency: 0 } });
+    const guitar = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: false,
+        autoGainControl: false,
+        noiseSuppression: false,
+        latency: 0
+      }
+    });
+
     const source = context.createMediaStreamSource(guitar); // media stream audio source
 
     const compressor = context.createDynamicsCompressor();
@@ -53,36 +61,37 @@ const App = () => {
     compressor.attack.setValueAtTime(0, context.currentTime);
     compressor.release.setValueAtTime(0.25, context.currentTime);
 
-    source.connect(analyser).connect(compressor);
-    compressor.connect(context.destination);
+    source
+      .connect(analyser)
+      .connect(compressor)
+      .connect(context.destination);
   }
 
-  const saveNote = (note: any) => { // TEMP ANY
+  const saveChar = (char: string) => {
     const newOutput = output.slice();
-    if (note !== '') {
-      if (note === 'shift') {
+    if (char !== '') {
+      if (char === 'shift') {
         setShift(prev => !prev);
-      } else if (note === 'delete') {
+      } else if (char === 'delete') {
         newOutput.pop();
         setOutput(newOutput);
-      } else if (note === 'return') {
+      } else if (char === 'return') {
         setRecording(false);
       } else {
-        newOutput.push(note);
+        newOutput.push(char);
         setOutput(newOutput);
       }
     }
   }
 
-  const startRecording = (batch: any[], deadSignal?: number) => { // TEMP ANY
+  const startRecording = (batch: Batch, deadSignal?: number) => {
     if (recording) {
       // Detects pitch
       const buffer = new Uint8Array(analyser.fftSize);
       analyser.getByteTimeDomainData(buffer);
       const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
-      console.log('FREQ  ', fundamentalFreq)
-      // 59 is floor for B1 and 1191 is ceiling for D6
-      if (fundamentalFreq > 59 && fundamentalFreq < 1191) {
+      // 59 is floor for B1 and 1211 is ceiling for D6
+      if (fundamentalFreq > 59 && fundamentalFreq < 1211) {
         const newBatch = batch.slice();
         newBatch.push([translateFreq(shift, fundamentalFreq), fundamentalFreq]);
         window.requestAnimationFrame(() => startRecording(newBatch));
@@ -91,7 +100,7 @@ const App = () => {
         !deadSignal ? deadSignal = 1 : deadSignal++;
 
         if (batch.length && deadSignal === 2) {
-          saveNote(removeOvertones(batch));
+          saveChar(removeOvertones(batch));
         } else if (batch.length && deadSignal < 2) {
           window.requestAnimationFrame(() => startRecording(batch, deadSignal));
         } else {
@@ -103,14 +112,13 @@ const App = () => {
     }
   }
 
-  const stopRecording = () => { // TEMP ANY
-    // context.suspend();
+  const stopRecording = () => {
     const newOutput = output.join('');
     let newFunc;
 
     try {
       newFunc = eval('(' + newOutput + ')'); // Never use eval on an app that needs security!
-    } catch (err: any) { // TEMP ANY
+    } catch (err: any) { // Can be any type of error
       newFunc = err.toString();
     }
 
