@@ -1,7 +1,7 @@
 [
   {
     "note": "B1",
-    "frequency": 61,
+    "frequency": 62,
     "chars": [
       " ",
       " "
@@ -9,7 +9,7 @@
   },
   {
     "note": "C2",
-    "frequency": 65,
+    "frequency": 65.9,
     "chars": [
       "\n",
       "\n"
@@ -17,7 +17,7 @@
   },
   {
     "note": "C#2",
-    "frequency": 71,
+    "frequency": 69.9,
     "chars": [
       "shift",
       "shift"
