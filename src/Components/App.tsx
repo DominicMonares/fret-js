@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import { findFundamentalFreq, removeOvertones, translateFreq } from '../utils';
 import { Batch } from '../types';
-import {
-  findFundamentalFreq,
-  removeOvertones,
-  translateFreq
-} from '../utils';
-import './App.css';
-
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
 import fret24 from '../../assets/24_fret.png';
+import './App.css';
 
 
 const context = new window.AudioContext;
@@ -42,7 +37,6 @@ const App = () => {
 
   const setupContext = async () => {
     if (context.state === 'suspended') await context.resume();
-
     const guitar = await navigator.mediaDevices.getUserMedia({
       audio: {
         echoCancellation: false,
@@ -53,7 +47,6 @@ const App = () => {
     });
 
     const source = context.createMediaStreamSource(guitar); // media stream audio source
-
     const compressor = context.createDynamicsCompressor();
     compressor.threshold.setValueAtTime(-50, context.currentTime);
     compressor.knee.setValueAtTime(40, context.currentTime);
@@ -98,7 +91,6 @@ const App = () => {
       } else if (fundamentalFreq === -1) {
         // Prevent straggler frequencies
         !deadSignal ? deadSignal = 1 : deadSignal++;
-
         if (batch.length && deadSignal === 2) {
           saveChar(removeOvertones(batch));
         } else if (batch.length && deadSignal < 2) {
