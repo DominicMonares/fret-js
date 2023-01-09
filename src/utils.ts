@@ -1,5 +1,6 @@
+import { Batch, BatchItem } from './types';
 import notes from '../notes.json';
-import { BatchItem, Batch, MostTones, Tones } from './types';
+
 
 export const findFundamentalFreq = (buffer: Uint8Array, sampleRate: number) => {
   const n = 1024
@@ -26,12 +27,14 @@ export const findFundamentalFreq = (buffer: Uint8Array, sampleRate: number) => {
 }
 
 export const findClosestNote = (targetFreq: number) => {
+  // Search notes.json for closest freq match
   let start = 0;
   let end = notes.length - 1;
   let pivot = Math.floor((start + end) / 2);
 
   while (end > start) {
-    const rangeAmount = pivot < 19 ? 2 : pivot < 30 ? 6 : pivot < 40 ? 10 : 20 // Higher freqs have higher ranges
+    // Valid freq range increases the higher the freq is
+    const rangeAmount = pivot < 19 ? 2 : pivot < 30 ? 6 : pivot < 40 ? 10 : 20;
     const lowRange = notes[pivot]['frequency'] - rangeAmount;
     const inLowRange = targetFreq >= lowRange;
     const highRange = notes[pivot]['frequency'] + rangeAmount;
@@ -57,20 +60,8 @@ export const translateFreq = (shift: boolean, freq: number) => {
 }
 
 export const removeOvertones = (batch: Batch) => {
-  const tones: Tones = {};
-  batch.forEach((t: BatchItem) => {
-    !tones[t[0]] ? tones[t[0]] = { count: 1, freq: t[1] } : tones[t[0]]['count']++;
-  });
+  let lowestTone = [batch[0][0], batch[0][1]];
+  batch.forEach((t: BatchItem) => { if (t[1] > lowestTone[1]) lowestTone = [t[0], t[1]]});
 
-  let mostTones: MostTones = ['', 0, 0]; // Char, Count, Freq
-  for (let t in tones) {
-    const currentFreq = tones[t]['freq'];
-    const storedFreq = mostTones[2];
-    const higherFreq = currentFreq > storedFreq && currentFreq >= 4;
-    const lowerFreq = currentFreq < storedFreq;
-    const higherCount = tones[t]['count'] > mostTones[1];
-    if ((higherCount && !lowerFreq) || higherFreq) mostTones = [t, tones[t]['count'], tones[t]['freq']];
-  }
-
-  return mostTones[0];
+  return lowestTone[0] as string;
 }
