@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { findFundamentalFreq, removeOvertones, translateFreq } from '../utils';
+import { findFundamentalFreq, removeExtraTones, translateFreq } from '../utils';
 import { Batch } from '../types';
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
@@ -86,7 +86,7 @@ const App = () => {
         !deadSignal ? deadSignal = 1 : deadSignal++;
 
         if (batch.length && deadSignal === 2) {
-          const char = removeOvertones(batch);
+          const char = removeExtraTones(batch);
           saveChar(char);
         } else if (batch.length && deadSignal < 2) {
           window.requestAnimationFrame(() => record(batch, deadSignal));
