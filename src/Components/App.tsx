@@ -62,8 +62,8 @@ const App = () => {
     compressor.release.setValueAtTime(0.25, context.currentTime);
 
     source
-      .connect(analyser)
       .connect(compressor)
+      .connect(analyser)
       .connect(context.destination);
   }
 
