@@ -17,7 +17,7 @@
   },
   {
     "note": "C#2",
-    "frequency": 69.9,
+    "frequency": 69.8,
     "chars": [
       "shift",
       "shift"
@@ -25,7 +25,7 @@
   },
   {
     "note": "D2",
-    "frequency": 75,
+    "frequency": 73.6,
     "chars": [
       "a",
       "A"
@@ -65,7 +65,7 @@
   },
   {
     "note": "G2",
-    "frequency": 100,
+    "frequency": 99,
     "chars": [
       "f",
       "F"
