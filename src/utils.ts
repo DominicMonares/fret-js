@@ -61,7 +61,6 @@ export const translateFreq = (shift: boolean, freq: number) => {
 
 export const removeOvertones = (batch: Batch) => {
   let lowestTone = [batch[0][0], batch[0][1]];
-  batch.forEach((t: BatchItem) => { if (t[1] > lowestTone[1]) lowestTone = [t[0], t[1]]});
-
+  batch.forEach((t: BatchItem) => t[1] > lowestTone[1] ? lowestTone = t : null);
   return lowestTone[0] as string;
 }
