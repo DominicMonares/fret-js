@@ -15,7 +15,8 @@ export const findClosestNote = (targetFreq: number) => {
 
   while (end > start) {
     // Valid freq range increases the higher the freq is
-    const rangeAmount = pivot < 15 ? 1.9 : pivot < 19 ? 3 : pivot < 30 ? 6 : pivot < 40 ? 10 : 20;
+    // const rangeAmount = pivot < 15 ? 1.9 : pivot < 19 ? 3 : pivot < 30 ? 6 : pivot < 40 ? 10 : 20;
+    const rangeAmount = 1;
     const lowRange = notes[pivot]['frequency'] - rangeAmount;
     const inLowRange = targetFreq >= lowRange;
     const highRange = notes[pivot]['frequency'] + rangeAmount;
