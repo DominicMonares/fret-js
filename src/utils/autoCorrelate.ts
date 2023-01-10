@@ -31,7 +31,7 @@ export const autoCorrelate = (buffer: Float32Array, sampleRate: number) => {
   let rms = 0;
   buffer.forEach(b => rms += b * b);
   rms = Math.sqrt(rms / bufferSize);
-  if (rms < 0.01) return -1; // Not enough signal
+  if (rms < 0.1) return -1; // Not enough signal
 
   // Find a range in the buffer where values are below the threshold
   let r1 = 0;
