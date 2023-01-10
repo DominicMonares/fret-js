@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { removeExtraTones, translateFreq } from '../utils/freqTranslation';
+import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { autoCorrelate } from '../utils/autoCorrelate';
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
@@ -88,7 +88,7 @@ const App = () => {
         !deadSignal ? deadSignal = 1 : deadSignal++;
 
         if (batch.length && deadSignal === 2) {
-          const char = removeExtraTones(batch);
+          const char = removeExtraChars(batch);
           saveChar(char);
         } else if (batch.length && deadSignal < 2) {
           window.requestAnimationFrame(() => record(batch, deadSignal));

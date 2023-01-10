@@ -35,8 +35,8 @@ export const findClosestNote = (targetFreq: number) => {
   return notes[start];
 }
 
-export const removeExtraTones = (batch: string[]) => {
-  // Find most common tone
+export const removeExtraChars = (batch: string[]) => {
+  // Find most common char
   const chars: Chars = {};
   batch.forEach((c: string) => !chars[c] ? chars[c] = 1 : chars[c]++);
 
