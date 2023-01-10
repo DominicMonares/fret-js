@@ -1,6 +1,11 @@
-import { BatchItem, Batch, MostTones, Tones } from '../types';
+import { Chars } from '../types';
 import notes from '../../notes.json';
 
+
+export const translateFreq = (shift: boolean, freq: number) => {
+  const noteNode = findClosestNote(freq);
+  return !shift ? noteNode['chars'][0] : noteNode['chars'][1];
+}
 
 export const findClosestNote = (targetFreq: number) => {
   // Search notes.json for closest freq match
@@ -30,33 +35,15 @@ export const findClosestNote = (targetFreq: number) => {
   return notes[start];
 }
 
-export const translateFreq = (shift: boolean, freq: number) => {
-  const noteNode = findClosestNote(freq);
-  return !shift ? noteNode['chars'][0] : noteNode['chars'][1];
-}
+export const removeExtraTones = (batch: string[]) => {
+  // Find most common tone
+  const chars: Chars = {};
+  batch.forEach((c: string) => !chars[c] ? chars[c] = 1 : chars[c]++);
 
-export const removeExtraTones = (batch: Batch) => {
-  // Store all tones and track the number of times they were recorded
-  const tones: Tones = {};
-  batch.forEach((t: BatchItem) => {
-    const char = t[0];
-    const freq = t[1];
-    !tones[char] ? tones[char] = { count: 1, freq: freq } : tones[char]['count']++;
-  });
-
-  // Find the most relevant tone based on the octave and count
-  let mostTones: MostTones = ['', 0, 0]; // Char, Count, Freq
-  for (let t in tones) {
-    // Notes in and over the 4th octave pick up more undertones
-    // Notes below the 4th octave pick up more overtones
-    const count = tones[t]['count'];
-    const freq = tones[t]['freq'];
-    const storedFreq = mostTones[2];
-    const higherFreq = freq > storedFreq && freq > 122.1; // B2 - CHANGE
-    const lowerFreq = freq < storedFreq;
-    const higherCount = count > mostTones[1];
-    if ((higherCount && !higherFreq) || higherFreq) mostTones = [t, count, freq];
+  let mostTones = ['', 0];
+  for (let c in chars) {
+    if (chars[c] > mostTones[0]) mostTones = [c, chars[c]];
   }
 
-  return mostTones[0];
+  return mostTones[0] as string;
 }

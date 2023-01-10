@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { findFundamentalFreq, removeExtraTones, translateFreq } from '../utils';
-import { Batch } from '../types';
+import { removeExtraTones, translateFreq } from '../utils/freqTranslation';
+import { autoCorrelate } from '../utils/autoCorrelate';
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
 import fret24 from '../../assets/24_fret.png';
@@ -67,19 +67,21 @@ const App = () => {
     }
   });
 
-  const record = (batch: Batch, deadSignal?: number) => {
+  const record = (batch: string[], deadSignal?: number) => {
     if (recording) {
       // Detect pitch
-      const buffer = new Uint8Array(analyser.fftSize);
-      analyser.getByteTimeDomainData(buffer);
-      const fundamentalFreq = findFundamentalFreq(buffer, context.sampleRate);
+      const bufferSize = analyser.fftSize;
+      const buffer = new Float32Array(bufferSize);
+      analyser.getFloatTimeDomainData(buffer);
+      const fundamentalFreq = autoCorrelate(buffer, context.sampleRate);
+      console.log('FREQ ', fundamentalFreq)
 
       // 59-1211 is freq range for B1-D6 (22 fret)
       if (fundamentalFreq > 59 && fundamentalFreq < 1211) {
-        // Batch tracks every frequency recorded when a single note is played
+        // Batch tracks every char recorded when a single note is played
         const newBatch = batch.slice();
         const char = translateFreq(shift, fundamentalFreq);
-        newBatch.push([char, fundamentalFreq]);
+        newBatch.push(char);
         window.requestAnimationFrame(() => record(newBatch));
       } else if (fundamentalFreq === -1) { // No frequency detected
         // Prevent straggler frequencies, confirms note is finished
