@@ -8,16 +8,21 @@ export const translateFreq = (shift: boolean, freq: number) => {
 }
 
 export const findClosestNote = (targetFreq: number) => {
-  // Search notes.json for closest freq match
   let start = 0;
   let end = notes.length - 1;
   let pivot = Math.floor((start + end) / 2);
 
   while (end > start) {
-    const rangeAmount = pivot < 40 ? 1.5 : 4; // Valid range increases the higher freq is
-    const lowRange = notes[pivot]['frequency'] - rangeAmount;
+    // Find midpoint between current freq and one of its neighbors
+    // Choose lower freq when available so as not to overstep when checking lower range
+    const firstFreq = notes[pivot]['frequency'];
+    const secondFreq = notes[pivot > 0 ? pivot - 1 : pivot + 1]['frequency'];
+    const midpoint = (firstFreq - secondFreq) / 2;
+
+    // Use midpoint to find range of current freq
+    const lowRange = firstFreq - midpoint;
+    const highRange = firstFreq + midpoint;
     const inLowRange = targetFreq >= lowRange;
-    const highRange = notes[pivot]['frequency'] + rangeAmount;
     const inHighRange = targetFreq <= highRange;
 
     if (inLowRange && inHighRange) {
@@ -35,13 +40,12 @@ export const findClosestNote = (targetFreq: number) => {
 }
 
 export const removeExtraChars = (batch: string[]) => {
-  // Find most common char
   const chars: Chars = {};
-  batch.forEach((c: string) => !chars[c] ? chars[c] = 1 : chars[c]++);
+  batch.sort().forEach((c: string) => !chars[c] ? chars[c] = 1 : chars[c]++);
 
   let mostTones = ['', 0];
   for (let c in chars) {
-    if (chars[c] > mostTones[0]) mostTones = [c, chars[c]];
+    if (chars[c] > mostTones[1]) mostTones = [c, chars[c]];
   }
 
   return mostTones[0] as string;
