@@ -151,7 +151,13 @@ const App = () => {
           >
             {recording ? "Recording!" : "Start Recording"}
           </button>
-          <button className="clear-record" onClick={clearRecording}>Clear Recording</button>
+          <button
+            className="clear-record"
+            onClick={clearRecording}
+            disabled={!recording && func ? false : true}
+          >
+            Clear Recording
+          </button>
         </div>
         <div className="workspace">
           <div>
