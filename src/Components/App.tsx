@@ -67,31 +67,25 @@ const App = () => {
     }
   });
 
-  const record = (batch: string[], deadSignal?: number) => {
+  const record = (batch: string[]) => {
     if (recording) {
       // Detect pitch
       const bufferSize = analyser.fftSize;
       const buffer = new Float32Array(bufferSize);
       analyser.getFloatTimeDomainData(buffer);
       const fundamentalFreq = autoCorrelate(buffer, context.sampleRate);
-      console.log('FREQ ', fundamentalFreq)
 
-      // 59-1211 is freq range for B1-D6 (22 fret)
-      if (fundamentalFreq > 59 && fundamentalFreq < 1211) {
+      // 59.91 - 1207.63 is freq range for B1-D6 (22 fret)
+      if (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63) {
         // Batch tracks every char recorded when a single note is played
         const newBatch = batch.slice();
         const char = translateFreq(shift, fundamentalFreq);
         newBatch.push(char);
         window.requestAnimationFrame(() => record(newBatch));
       } else if (fundamentalFreq === -1) { // No frequency detected
-        // Prevent straggler frequencies, confirms note is finished
-        !deadSignal ? deadSignal = 1 : deadSignal++;
-
-        if (batch.length && deadSignal === 5) {
+        if (batch.length > 5) { // Helps to prevent straggler frequencies
           const char = removeExtraChars(batch);
           saveChar(char);
-        } else if (batch.length && deadSignal < 5) {
-          window.requestAnimationFrame(() => record(batch, deadSignal));
         } else {
           window.requestAnimationFrame(() => record([]));
         }
