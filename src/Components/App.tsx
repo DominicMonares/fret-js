@@ -87,10 +87,10 @@ const App = () => {
         // Prevent straggler frequencies, confirms note is finished
         !deadSignal ? deadSignal = 1 : deadSignal++;
 
-        if (batch.length && deadSignal === 2) {
+        if (batch.length && deadSignal === 5) {
           const char = removeExtraChars(batch);
           saveChar(char);
-        } else if (batch.length && deadSignal < 2) {
+        } else if (batch.length && deadSignal < 5) {
           window.requestAnimationFrame(() => record(batch, deadSignal));
         } else {
           window.requestAnimationFrame(() => record([]));
