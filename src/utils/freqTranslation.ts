@@ -44,9 +44,6 @@ export const removeExtraChars = (batch: string[]) => {
   batch.sort().forEach((c: string) => !chars[c] ? chars[c] = 1 : chars[c]++);
 
   let mostTones = ['', 0];
-  for (let c in chars) {
-    if (chars[c] > mostTones[1]) mostTones = [c, chars[c]];
-  }
-
+  for (let c in chars) if (chars[c] > mostTones[1]) mostTones = [c, chars[c]];
   return mostTones[0] as string;
 }
