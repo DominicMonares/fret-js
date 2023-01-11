@@ -75,12 +75,13 @@ const App = () => {
       analyser.getFloatTimeDomainData(buffer);
       const fundamentalFreq = autoCorrelate(buffer, context.sampleRate);
 
-      // 59.91 - 1207.63 is freq range for B1-D6 (22 fret)
+      // 59.91-1207.63 is freq range for B1-D6 (22 fret)
       if (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63) {
         // Batch tracks every char recorded when a single note is played
         const newBatch = batch.slice();
         const char = translateFreq(shift, fundamentalFreq);
         newBatch.push(char);
+
         window.requestAnimationFrame(() => record(newBatch));
       } else if (fundamentalFreq === -1) { // No frequency detected
         if (batch.length > 5) { // Helps to prevent straggler frequencies
