@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
-import fretKey from '../../assets/key.png';
-import fret24 from '../../assets/24_fret.png';
 import './App.css';
 
 
@@ -169,10 +167,6 @@ const App = () => {
             <span className="output-label">Output</span>
             <div className="output">{output}</div>
           </div>
-        </div>
-        <div className="frets">
-          <img className="fret-key" src={fretKey} alt="Fret Key" />
-          <img src={fret24} width="100%" alt="24 Fret Map" />
         </div>
       </div>
     </div>
