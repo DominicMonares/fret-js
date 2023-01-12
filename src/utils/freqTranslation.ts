@@ -3,8 +3,8 @@ import {
   FindNote,
   TranslateFreq
 } from '../types';
-import notes22 from '../../notes22.json';
-import notes24 from '../../notes24.json';
+import notes22 from '../../data/notes22.json';
+import notes24 from '../../data/notes24.json';
 
 
 export const translateFreq: TranslateFreq = (shift, freq, fretNum) => {
