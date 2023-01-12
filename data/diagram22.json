@@ -1,681 +1,164 @@
 {
-  "B1": [
+  "E4": [
     {
       "primary": true,
-      "chars": [
-        " ",
-        " "
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "\n",
-        "\n"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "shift",
-        "shift"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "a",
-        "A"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "b",
-        "B"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "c",
-        "C"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "d",
-        "D"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "e",
-        "E"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "f",
-        "F"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "g",
-        "G"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "h",
-        "H"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "i",
-        "I"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "j",
-        "J"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "k",
-        "K"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "l",
-        "L"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "m",
-        "M"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "n",
-        "N"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "o",
-        "O"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "p",
-        "P"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "q",
-        "Q"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "r",
-        "R"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "s",
-        "S"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "t",
-        "T"
-      ]
-    }
-  ],
-  "A2": [
-    {
-      "primary": true,
-      "chars": [
-        "h",
-        "H"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "i",
-        "I"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "j",
-        "J"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "k",
-        "K"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "l",
-        "L"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "m",
-        "M"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "n",
-        "N"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "o",
-        "O"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "p",
-        "P"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "q",
-        "Q"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "r",
-        "R"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "s",
-        "S"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "t",
-        "T"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "u",
-        "U"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "v",
-        "V"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "w",
-        "W"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "x",
-        "X"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "y",
-        "Y"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "z",
-        "Z"
-      ]
-    },
-    {
-      "primary": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": false,
-      "chars": [
-        "",
-        ""
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "",
-        ""
-      ]
-    }
-  ],
-  "D3": [
-    {
       "primary": true,
-      "chars": [
-        "m",
-        "M"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "n",
-        "N"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "o",
-        "O"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "p",
-        "P"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "q",
-        "Q"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "r",
-        "R"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "s",
-        "S"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "t",
-        "T"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "u",
-        "U"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "v",
-        "V"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "w",
-        "W"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "x",
-        "X"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "y",
-        "Y"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "z",
-        "Z"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "1",
-        "!"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "2",
-        "@"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "3",
-        "#"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "4",
-        "$"
-      ]
-    },
-    {
-      "primary": false,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "9",
         "("
       ]
     },
     {
-      "primary": false,
-      "chars": [
-        "",
-        ""
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "",
-        ""
-      ]
-    }
-  ],
-  "G3": [
-    {
       "primary": true,
-      "chars": [
-        "r",
-        "R"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "s",
-        "S"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "t",
-        "T"
-      ]
-    },
-    {
-      "primary": true,
-      "chars": [
-        "u",
-        "U"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "v",
-        "V"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "w",
-        "W"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "x",
-        "X"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "y",
-        "Y"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "z",
-        "Z"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "1",
-        "!"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "2",
-        "@"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "3",
-        "#"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "4",
-        "$"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "5",
-        "%"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "6",
-        "^"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "7",
-        "&"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "8",
-        "*"
-      ]
-    },
-    {
-      "primary": false,
-      "chars": [
-        "9",
-        "("
-      ]
-    },
-    {
-      "primary": false,
       "chars": [
         "0",
         ")"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "-",
         "_"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "=",
         "+"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "[",
         "{"
       ]
     },
     {
-      "primary": false,
+      "primary": true,
       "chars": [
         "]",
         "}"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "\\",
+        "|"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        ";",
+        ":"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "'",
+        "\""
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        ",",
+        "<"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        ".",
+        ">"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "/",
+        "?"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "`",
+        "~"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "delete",
+        "delete"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "return",
+        "return"
       ]
     },
     {
@@ -870,166 +353,343 @@
       ]
     }
   ],
-  "E4": [
+  "G3": [
     {
       "primary": true,
+      "chars": [
+        "r",
+        "R"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "s",
+        "S"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "t",
+        "T"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "u",
+        "U"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "v",
+        "V"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "w",
+        "W"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "x",
+        "X"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "y",
+        "Y"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "z",
+        "Z"
+      ]
+    },
+    {
+      "primary": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "9",
         "("
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "0",
         ")"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "-",
         "_"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "=",
         "+"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "[",
         "{"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
         "]",
         "}"
       ]
     },
     {
+      "primary": false,
+      "chars": [
+        "",
+        ""
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "",
+        ""
+      ]
+    }
+  ],
+  "D3": [
+    {
       "primary": true,
       "chars": [
-        "\\",
-        "|"
+        "m",
+        "M"
       ]
     },
     {
       "primary": true,
       "chars": [
-        ";",
-        ":"
+        "n",
+        "N"
       ]
     },
     {
       "primary": true,
       "chars": [
-        "'",
-        "\""
+        "o",
+        "O"
       ]
     },
     {
       "primary": true,
       "chars": [
-        ",",
-        "<"
+        "p",
+        "P"
       ]
     },
     {
       "primary": true,
       "chars": [
-        ".",
-        ">"
+        "q",
+        "Q"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
-        "/",
-        "?"
+        "r",
+        "R"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
-        "`",
-        "~"
+        "s",
+        "S"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
-        "delete",
-        "delete"
+        "t",
+        "T"
       ]
     },
     {
-      "primary": true,
+      "primary": false,
       "chars": [
-        "return",
-        "return"
+        "u",
+        "U"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "v",
+        "V"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "w",
+        "W"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "x",
+        "X"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "y",
+        "Y"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "z",
+        "Z"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "1",
+        "!"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "2",
+        "@"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "3",
+        "#"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "4",
+        "$"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "5",
+        "%"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "6",
+        "^"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "7",
+        "&"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "8",
+        "*"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "9",
+        "("
       ]
     },
     {
@@ -1044,6 +704,346 @@
       "chars": [
         "",
         ""
+      ]
+    }
+  ],
+  "A2": [
+    {
+      "primary": true,
+      "chars": [
+        "h",
+        "H"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "i",
+        "I"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "j",
+        "J"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "k",
+        "K"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "l",
+        "L"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "m",
+        "M"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "n",
+        "N"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "o",
+        "O"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "p",
+        "P"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "q",
+        "Q"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "r",
+        "R"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "s",
+        "S"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "t",
+        "T"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "u",
+        "U"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "v",
+        "V"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "w",
+        "W"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "x",
+        "X"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "y",
+        "Y"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "z",
+        "Z"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "1",
+        "!"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "2",
+        "@"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "3",
+        "#"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "4",
+        "$"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "",
+        ""
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "",
+        ""
+      ]
+    }
+  ],
+  "B1": [
+    {
+      "primary": true,
+      "chars": [
+        " ",
+        " "
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "shift",
+        "shift"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "a",
+        "A"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "b",
+        "B"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "c",
+        "C"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "d",
+        "D"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "e",
+        "E"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "f",
+        "F"
+      ]
+    },
+    {
+      "primary": true,
+      "chars": [
+        "g",
+        "G"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "h",
+        "H"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "i",
+        "I"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "j",
+        "J"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "k",
+        "K"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "l",
+        "L"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "m",
+        "M"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "n",
+        "N"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "o",
+        "O"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "p",
+        "P"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "q",
+        "Q"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "r",
+        "R"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "s",
+        "S"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "t",
+        "T"
       ]
     }
   ]
