@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import Frets from './Frets/Frets';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
@@ -134,41 +135,40 @@ const App = () => {
   }
 
   return (
-    <div>
-      <div>
-        <div className="logo" >
-          <img src={logo} width="205" height="63" alt="Logo" />
+    <div id="app">
+      <div className="logo" >
+        <img src={logo} width="205" height="63" alt="Logo" />
+      </div>
+      <div className="buttons">
+        <button
+          className={recording ? "recording" : "record"}
+          onClick={() => {
+            setRecording(true);
+            setRecordingStarted(true);
+          }}
+        >
+          {recording ? "Recording!" : "Start Recording"}
+        </button>
+        <button
+          className="clear-record"
+          onClick={clearRecording}
+          disabled={!recording && output ? false : true}
+        >
+          Clear Recording
+        </button>
+      </div>
+      <div className="workspace">
+        <div>
+          <span className="input-label">Input</span>
+          <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
+          <div className="input">{input.join('')}</div>
         </div>
-        <div className="buttons">
-          <button
-            className={recording ? "recording" : "record"}
-            onClick={() => {
-              setRecording(true);
-              setRecordingStarted(true);
-            }}
-          >
-            {recording ? "Recording!" : "Start Recording"}
-          </button>
-          <button
-            className="clear-record"
-            onClick={clearRecording}
-            disabled={!recording && output ? false : true}
-          >
-            Clear Recording
-          </button>
-        </div>
-        <div className="workspace">
-          <div>
-            <span className="input-label">Input</span>
-            <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
-            <div className="input">{input.join('')}</div>
-          </div>
-          <div>
-            <span className="output-label">Output</span>
-            <div className="output">{output}</div>
-          </div>
+        <div>
+          <span className="output-label">Output</span>
+          <div className="output">{output}</div>
         </div>
       </div>
+      <Frets />
     </div>
   );
 }
