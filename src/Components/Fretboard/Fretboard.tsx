@@ -9,13 +9,11 @@ const Fretboard = ({ fretNum, shift }: FretProps) => {
   const [diagram, setDiagram] = useState<Diagram>(fretNum === 22 ? diagram22 : diagram24);
 
   return (
-    <div>
-      {Object.values(diagram).map(guitarString => {
+    <div className="fretboard">
+      {Object.values(diagram).flat().map(f => {
         return (
-          <div>
-            {guitarString.map(s => { })}
-          </div>
-        )
+          <div>{shift ? f.chars[0] : f.chars[1]}</div>
+        );
       })}
     </div>
   );
