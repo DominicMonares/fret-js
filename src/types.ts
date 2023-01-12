@@ -2,6 +2,15 @@ export interface Chars {
   [key: string]: number;
 }
 
+export interface Diagram {
+  [key: string]: DiagramNode[];
+}
+
+export interface DiagramNode {
+  primary: boolean;
+  chars: string[];
+}
+
 export type FindNote = (
   targetFreq: number,
   fretNum: FretNum
@@ -11,6 +20,7 @@ export type FretNum = 22 | 24;
 
 export interface FretProps {
   fretNum: FretNum;
+  shift: boolean;
 }
 
 export interface NoteNode {
