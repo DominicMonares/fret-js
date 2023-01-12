@@ -1,4 +1,6 @@
-const Frets = () => {
+import { FretProps } from "../../types";
+
+const Frets = ({ fretNum }: FretProps) => {
   return (
     <div>
       FRETS

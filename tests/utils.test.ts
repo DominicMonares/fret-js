@@ -17,18 +17,18 @@ describe('detectPitch', () => {
 });
 
 describe('translateFreq', () => {
-  it('should return a lowercase "a" when freq 73.42 is provided and not shifted', () => {
-    const result = translateFreq(false, 73.42);
+  it('should return a lowercase "a" when freq 73.42 is provided and not shifted on 22 fret', () => {
+    const result = translateFreq(false, 73.42, 22);
     expect(result).toBe('a');
   });
 
-  it('should return an uppercase "T" when freq 220 is provided and shifted', () => {
-    const result = translateFreq(true, 220);
-    expect(result).toBe('T');
+  it('should return an uppercase "R" when freq 220 is provided and shifted', () => {
+    const result = translateFreq(true, 220, 24);
+    expect(result).toBe('R');
   });
 
   it('should return a space when freq 61.74 is provided and unshifted', () => {
-    const result = translateFreq(false, 61.74);
+    const result = translateFreq(false, 61.74, 22);
     expect(result).toBe(' ');
   });
 });
