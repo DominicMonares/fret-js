@@ -1,5 +1,20 @@
 import { translateFreq, removeExtraChars } from '../src/utils/freqTranslation';
-import notes from '../notes.json';
+import { detectPitch } from '../src/utils/detectPitch';
+import buffer from './bufferTestData.json';
+
+describe('detectPitch', () => {
+  it('should return a freq around 330 when matching buffer applied', () => {
+    const floatArr = new Float32Array(buffer.freq330);
+    const result = detectPitch(floatArr, 44100);
+    expect(result).toBe(330.1346798637547);
+  });
+
+  it('should return -1 if frequency is too low', () => {
+    const floatArr = new Float32Array(buffer.noFreq);
+    const result = detectPitch(floatArr, 44100);
+    expect(result).toBe(-1);
+  });
+});
 
 describe('translateFreq', () => {
   it('should return a lowercase "a" when freq 73.42 is provided and not shifted', () => {
