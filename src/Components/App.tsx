@@ -15,8 +15,8 @@ const App = () => {
   const [recording, setRecording] = useState<boolean>(false);
   const [recordingStarted, setRecordingStarted] = useState<boolean>(false);
   const [shift, setShift] = useState<boolean>(false);
-  const [output, setOutput] = useState<string[]>([]);
-  const [func, setFunc] = useState<string>('');
+  const [input, setInput] = useState<string[]>([]);
+  const [output, setOutput] = useState<string>('');
 
   // Create audio context on page load
   useEffect(() => {
@@ -69,21 +69,22 @@ const App = () => {
 
   const record = (batch: string[]) => {
     if (recording) {
-      // Detect pitch
+      // Find fundamental frequency
       const bufferSize = analyser.fftSize;
       const buffer = new Float32Array(bufferSize);
       analyser.getFloatTimeDomainData(buffer);
       const fundamentalFreq = detectPitch(buffer, context.sampleRate);
 
+      // Translate freq and add note to batch if within range
+      // Batch tracks every char recorded when a single note is played
       // 59.91-1207.63 is freq range for B1-D6 (22 fret)
       if (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63) {
-        // Batch tracks every char recorded when a single note is played
         const newBatch = batch.slice();
         const char = translateFreq(shift, fundamentalFreq);
         newBatch.push(char);
 
         window.requestAnimationFrame(() => record(newBatch));
-      } else if (fundamentalFreq === -1) { // No frequency detected
+      } else if (fundamentalFreq === -1) { // No freq - note is finished playing
         if (batch.length > 5) { // Helps to prevent straggler frequencies
           const char = removeExtraChars(batch);
           saveChar(char);
@@ -97,41 +98,39 @@ const App = () => {
   }
 
   const stopRecording = () => {
-    const newOutput = output.join('');
-    let newFunc;
-
     // Execute code that the user wrote once recording is stopped
+    let newOutput;
     try {
-      newFunc = eval(`(${newOutput})`); // Never use eval on an app that needs security!
+      newOutput = eval(`(${input.join('')})`); // Never use eval on an app that needs security!
     } catch (err: any) { // Can be any type of error
-      newFunc = err.toString();
+      newOutput = err.toString();
     }
 
-    setFunc(newFunc);
+    setOutput(newOutput);
   }
 
   const clearRecording = () => {
     setRecording(false);
     setRecordingStarted(false);
     setShift(false);
-    setOutput([]);
-    setFunc('');
+    setInput([]);
+    setOutput('');
   }
 
-  // Add translated char to output tracker
+  // Add translated char to input tracker
   const saveChar = (char: string) => {
-    const newOutput = output.slice();
+    const newinput = input.slice();
     if (char !== '') {
       if (char === 'shift') {
         setShift(prev => !prev);
       } else if (char === 'delete') {
-        newOutput.pop();
-        setOutput(newOutput);
+        newinput.pop();
+        setInput(newinput);
       } else if (char === 'return') {
         setRecording(false);
       } else {
-        newOutput.push(char);
-        setOutput(newOutput);
+        newinput.push(char);
+        setInput(newinput);
       }
     }
   }
@@ -155,7 +154,7 @@ const App = () => {
           <button
             className="clear-record"
             onClick={clearRecording}
-            disabled={!recording && func ? false : true}
+            disabled={!recording && output ? false : true}
           >
             Clear Recording
           </button>
@@ -164,11 +163,11 @@ const App = () => {
           <div>
             <span className="input-label">Input</span>
             <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
-            <div className="input func">{output.join('')}</div>
+            <div className="input output">{input.join('')}</div>
           </div>
           <div>
-            <span className="output-label">Output</span>
-            <div className="output func">{func}</div>
+            <span className="input-label">Output</span>
+            <div className="input output">{output}</div>
           </div>
         </div>
         <div className="frets">
