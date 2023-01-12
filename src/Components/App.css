@@ -21,7 +21,7 @@
   margin-top: 15px;
 }
 
-.record, .stop-record, .clear-record {
+.frets, .record, .clear-record {
   border-style: solid;
   border-color: darkorchid;
   border-radius: 5px;
@@ -29,10 +29,6 @@
   width: 150px;
   height: 30px;
   font-weight: 500;
-}
-
-.stop-record, .clear-record {
-  margin-left: 15px;
 }
 
 .recording, .stop-record:active, .clear-record:active {

@@ -16,6 +16,7 @@ const App = () => {
   const [shift, setShift] = useState<boolean>(false);
   const [input, setInput] = useState<string[]>([]);
   const [output, setOutput] = useState<string>('');
+  const [fretNum, setFretNum] = useState<22 | 24>(24);
 
   // Create audio context on page load
   useEffect(() => {
@@ -141,6 +142,12 @@ const App = () => {
       </div>
       <div className="buttons">
         <button
+          className="frets"
+          onClick={() => setFretNum(fretNum === 24 ? 22 : 24)}
+        >
+          {fretNum === 24 ? "Switch to 22 Frets" : "Switch to 24 Frets"}
+        </button>
+        <button
           className={recording ? "recording" : "record"}
           onClick={() => {
             setRecording(true);
@@ -168,7 +175,7 @@ const App = () => {
           <div className="output">{output}</div>
         </div>
       </div>
-      <Frets />
+      <Frets fretNum={fretNum} />
     </div>
   );
 }
