@@ -323,6 +323,20 @@
         "4",
         "$"
       ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
     }
   ],
   "D3": [
@@ -485,6 +499,20 @@
       "chars": [
         "9",
         "("
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
       ]
     }
   ],
@@ -649,6 +677,20 @@
         "]",
         "}"
       ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
     }
   ],
   "B3": [
@@ -812,6 +854,20 @@
         ",",
         "<"
       ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
     }
   ],
   "E4": [
@@ -974,6 +1030,20 @@
       "chars": [
         "return",
         "return"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        null,
+        null
       ]
     }
   ]
