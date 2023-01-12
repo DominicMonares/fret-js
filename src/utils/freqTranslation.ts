@@ -1,13 +1,19 @@
-import { Chars } from '../types';
-import notes from '../../notes.json';
+import {
+  Chars,
+  FindNote,
+  TranslateFreq
+} from '../types';
+import notes22 from '../../notes22.json';
+import notes24 from '../../notes24.json';
 
 
-export const translateFreq = (shift: boolean, freq: number) => {
-  const noteNode = findClosestNote(freq);
+export const translateFreq: TranslateFreq = (shift, freq, fretNum) => {
+  const noteNode = findClosestNote(freq, fretNum);
   return !shift ? noteNode['chars'][0] : noteNode['chars'][1];
 }
 
-export const findClosestNote = (targetFreq: number) => {
+export const findClosestNote: FindNote = (targetFreq, fretNum) => {
+  const notes = fretNum === 22 ? notes22 : notes24;
   let start = 0;
   let end = notes.length - 1;
   let pivot = Math.floor((start + end) / 2);

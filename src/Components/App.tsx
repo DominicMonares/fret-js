@@ -4,6 +4,7 @@ import Frets from './Frets/Frets';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
+import { FretNum } from '../types';
 import './App.css';
 
 
@@ -16,7 +17,7 @@ const App = () => {
   const [shift, setShift] = useState<boolean>(false);
   const [input, setInput] = useState<string[]>([]);
   const [output, setOutput] = useState<string>('');
-  const [fretNum, setFretNum] = useState<22 | 24>(24);
+  const [fretNum, setFretNum] = useState<FretNum>(24);
 
   // Create audio context on page load
   useEffect(() => {
@@ -78,9 +79,12 @@ const App = () => {
       // Translate freq and add note to batch if within range
       // Batch tracks every char recorded when a single note is played
       // 59.91-1207.63 is freq range for B1-D6 (22 fret)
-      if (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63) {
+      // 65.18-1382.51 is freq range for C#2-E6 (24 fret)
+      const in22Range = fretNum === 22 && (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63);
+      const in24Range = fretNum === 24 && (fundamentalFreq > 65.18 && fundamentalFreq < 1382.51);
+      if (in22Range || in24Range) {
         const newBatch = batch.slice();
-        const char = translateFreq(shift, fundamentalFreq);
+        const char = translateFreq(shift, fundamentalFreq, fretNum);
         newBatch.push(char);
 
         window.requestAnimationFrame(() => record(newBatch));
@@ -143,9 +147,9 @@ const App = () => {
       <div className="buttons">
         <button
           className="frets"
-          onClick={() => setFretNum(fretNum === 24 ? 22 : 24)}
+          onClick={() => setFretNum(fretNum === 22 ? 24 : 22)}
         >
-          {fretNum === 24 ? "Switch to 22 Frets" : "Switch to 24 Frets"}
+          {fretNum === 22 ? "Switch to 24 Frets" : "Switch to 22 Frets"}
         </button>
         <button
           className={recording ? "recording" : "record"}
