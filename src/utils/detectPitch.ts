@@ -20,12 +20,13 @@ SOFTWARE.
 
 /*
   Big thanks to Chris Wilson for this algorithm and Alex Ellis for the breakdown/comments!
+  Original algorithm is named autoCorrelate
   https://github.com/cwilso/PitchDetect/blob/main/js/pitchdetect.js
   https://alexanderell.is/posts/tuner/tuner.js
 */
 
 
-export const autoCorrelate = (buffer: Float32Array, sampleRate: number) => {
+export const detectPitch = (buffer: Float32Array, sampleRate: number) => {
   // Get root mean square to see if there is enough signal
   let bufferSize = buffer.length;
   let rms = 0;

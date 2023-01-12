@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
-import { autoCorrelate } from '../utils/autoCorrelate';
+import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
 import fretKey from '../../assets/key.png';
 import fret24 from '../../assets/24_fret.png';
@@ -73,7 +73,7 @@ const App = () => {
       const bufferSize = analyser.fftSize;
       const buffer = new Float32Array(bufferSize);
       analyser.getFloatTimeDomainData(buffer);
-      const fundamentalFreq = autoCorrelate(buffer, context.sampleRate);
+      const fundamentalFreq = detectPitch(buffer, context.sampleRate);
 
       // 59.91-1207.63 is freq range for B1-D6 (22 fret)
       if (fundamentalFreq > 59.91 && fundamentalFreq < 1207.63) {
