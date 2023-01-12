@@ -7,7 +7,7 @@
     "start": "webpack serve --port 3000",
     "build": "NODE_ENV=production webpack",
     "serve": "npx serve dist",
-    "test": "jest --coverage"
+    "test": "jest --coverage --watch"
   },
   "repository": {
     "type": "git",
