@@ -164,15 +164,15 @@
     {
       "primary": true,
       "chars": [
-        "delete",
-        "delete"
+        "del",
+        "del"
       ]
     },
     {
       "primary": true,
       "chars": [
-        "return",
-        "return"
+        "run",
+        "run"
       ]
     }
   ],

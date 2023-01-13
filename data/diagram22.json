@@ -150,15 +150,15 @@
     {
       "primary": true,
       "chars": [
-        "delete",
-        "delete"
+        "del",
+        "del"
       ]
     },
     {
       "primary": true,
       "chars": [
-        "return",
-        "return"
+        "run",
+        "run"
       ]
     },
     {
@@ -1044,6 +1044,20 @@
       "chars": [
         "t",
         "T"
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "",
+        ""
+      ]
+    },
+    {
+      "primary": false,
+      "chars": [
+        "",
+        ""
       ]
     }
   ]
