@@ -26,7 +26,14 @@ const Fretboard = ({ fretNum, shift }: FretProps) => {
         <div className="fretboard">
           {Object.values(diagram).flat().map((f, i) => {
             return (
-              <div className="fret" key={i}>
+              <div
+                className={
+                  `fret
+                  ${f.main ? 'main' : 'secondary'}
+                  ${f.chars[0] === '' ? 'blank' : ''}`
+                }
+                key={i}
+              >
                 <span className="string"></span>
                 <span className="char">
                   {shift ? f.chars[1] : f.chars[0]}
