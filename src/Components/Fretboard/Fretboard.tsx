@@ -18,15 +18,15 @@ const Fretboard = ({ fretNum, shift }: FretProps) => {
       <div className="fb-tune">
         {Object.keys(diagram).map(n => {
           return (
-            <span className="fb-tune-note">{n}</span>
+            <span className="fb-tune-note" key={n}>{n}</span>
           );
         })}
       </div>
       <div className="fb-container">
         <div className="fretboard">
-          {Object.values(diagram).flat().map(f => {
+          {Object.values(diagram).flat().map((f, i) => {
             return (
-              <div className="fret">
+              <div className="fret" key={i}>
                 <span className="string"></span>
                 <span className="char">
                   {shift ? f.chars[1] : f.chars[0]}
@@ -39,7 +39,7 @@ const Fretboard = ({ fretNum, shift }: FretProps) => {
         <div className="fret-nums">
           {Array.from({ length: 25 }, (v, i) => i).map(n => {
             return (
-              <span className="fret-num">{n}</span>
+              <span className="fret-num" key={n}>{n}</span>
             );
           })}
         </div>
