@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import Fretboard from './Fretboard';
 import diagram22 from '../../../data/diagram22.json';
 import diagram24 from '../../../data/diagram24.json';
 import { Diagram, DiagramProps } from "../../types";
@@ -22,26 +23,7 @@ const Diagram = ({ fretNum, shift }: DiagramProps) => {
         })}
       </div>
       <div className="fb-container">
-        <div className="fretboard">
-          {Object.values(diagram).flat().map((f, i) => {
-            return (
-              <div
-                className={
-                  `fret
-                  ${f.main ? 'main' : 'secondary'}
-                  ${f.chars[0] === '' ? 'blank' : ''}`
-                }
-                key={i}
-              >
-                <span className="string"></span>
-                <span className="char">
-                  {shift ? f.chars[1] : f.chars[0]}
-                </span>
-                <span className="string"></span>
-              </div>
-            );
-          })}
-        </div>
+        <Fretboard shift={shift} diagram={diagram} />
         <div className="fret-nums">
           {Array.from({ length: 25 }, (v, i) => i).map(n => {
             return (
