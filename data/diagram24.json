@@ -1,175 +1,175 @@
 {
   "E4": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "y",
         "Y"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "z",
         "Z"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "9",
         "("
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "0",
         ")"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "-",
         "_"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "=",
         "+"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "[",
         "{"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "]",
         "}"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "\\",
         "|"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         ";",
         ":"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "'",
         "\""
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         ",",
         "<"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         ".",
         ">"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "/",
         "?"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "`",
         "~"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "del",
         "del"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "run",
         "run"
@@ -178,175 +178,175 @@
   ],
   "B3": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "t",
         "T"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "u",
         "U"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "v",
         "V"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "w",
         "W"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "x",
         "X"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "y",
         "Y"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "z",
         "Z"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "9",
         "("
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "0",
         ")"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "-",
         "_"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "=",
         "+"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "[",
         "{"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "]",
         "}"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "\\",
         "|"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         ";",
         ":"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "'",
         "\""
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         ",",
         "<"
@@ -355,175 +355,175 @@
   ],
   "G3": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "p",
         "P"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "q",
         "Q"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "r",
         "R"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "s",
         "S"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "t",
         "T"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "u",
         "U"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "v",
         "V"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "w",
         "W"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "x",
         "X"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "y",
         "Y"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "z",
         "Z"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "9",
         "("
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "0",
         ")"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "-",
         "_"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "=",
         "+"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "[",
         "{"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "]",
         "}"
@@ -532,175 +532,175 @@
   ],
   "D3": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "k",
         "K"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "l",
         "L"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "m",
         "M"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "n",
         "N"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "o",
         "O"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "p",
         "P"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "q",
         "Q"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "r",
         "R"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "s",
         "S"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "t",
         "T"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "u",
         "U"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "v",
         "V"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "w",
         "W"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "x",
         "X"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "y",
         "Y"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "z",
         "Z"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "4",
         "$"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "5",
         "%"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "6",
         "^"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "7",
         "&"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "8",
         "*"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "9",
         "("
@@ -709,175 +709,175 @@
   ],
   "A2": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "f",
         "F"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "g",
         "G"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "h",
         "H"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "i",
         "I"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "j",
         "J"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "k",
         "K"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "l",
         "L"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "m",
         "M"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "n",
         "N"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "o",
         "O"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "p",
         "P"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "q",
         "Q"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "r",
         "R"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "s",
         "S"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "t",
         "T"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "u",
         "U"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "v",
         "V"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "w",
         "W"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "x",
         "X"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "y",
         "Y"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "z",
         "Z"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "1",
         "!"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "2",
         "@"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "3",
         "#"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "4",
         "$"
@@ -886,175 +886,175 @@
   ],
   "C#2": [
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "⎵",
         "⎵"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "↵",
         "↵"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "shift",
         "shift"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "a",
         "A"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "b",
         "B"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "c",
         "C"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "d",
         "D"
       ]
     },
     {
-      "primary": true,
+      "main": true,
       "chars": [
         "e",
         "E"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "f",
         "F"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "g",
         "G"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "h",
         "H"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "i",
         "I"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "j",
         "J"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "k",
         "K"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "l",
         "L"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "m",
         "M"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "n",
         "N"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "o",
         "O"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "p",
         "P"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "q",
         "Q"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "r",
         "R"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "s",
         "S"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "t",
         "T"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "u",
         "U"
       ]
     },
     {
-      "primary": false,
+      "main": false,
       "chars": [
         "v",
         "V"
