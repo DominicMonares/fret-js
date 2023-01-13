@@ -1,0 +1,418 @@
+[
+  {
+    "note": "B1",
+    "frequency": 61.74,
+    "chars": [
+      " ",
+      " "
+    ]
+  },
+  {
+    "note": "C2",
+    "frequency": 65.41,
+    "chars": [
+      "\n",
+      "\n"
+    ]
+  },
+  {
+    "note": "C#2",
+    "frequency": 69.3,
+    "chars": [
+      "shift",
+      "shift"
+    ]
+  },
+  {
+    "note": "D2",
+    "frequency": 73.42,
+    "chars": [
+      "a",
+      "A"
+    ]
+  },
+  {
+    "note": "D#2",
+    "frequency": 77.78,
+    "chars": [
+      "b",
+      "B"
+    ]
+  },
+  {
+    "note": "E2",
+    "frequency": 82.41,
+    "chars": [
+      "c",
+      "C"
+    ]
+  },
+  {
+    "note": "F2",
+    "frequency": 87.31,
+    "chars": [
+      "d",
+      "D"
+    ]
+  },
+  {
+    "note": "F#2",
+    "frequency": 92.5,
+    "chars": [
+      "e",
+      "E"
+    ]
+  },
+  {
+    "note": "G2",
+    "frequency": 98,
+    "chars": [
+      "f",
+      "F"
+    ]
+  },
+  {
+    "note": "G#2",
+    "frequency": 103.83,
+    "chars": [
+      "g",
+      "G"
+    ]
+  },
+  {
+    "note": "A2",
+    "frequency": 110,
+    "chars": [
+      "h",
+      "H"
+    ]
+  },
+  {
+    "note": "A#2",
+    "frequency": 116.54,
+    "chars": [
+      "i",
+      "I"
+    ]
+  },
+  {
+    "note": "B2",
+    "frequency": 123.47,
+    "chars": [
+      "j",
+      "J"
+    ]
+  },
+  {
+    "note": "C3",
+    "frequency": 130.81,
+    "chars": [
+      "k",
+      "K"
+    ]
+  },
+  {
+    "note": "C#3",
+    "frequency": 138.59,
+    "chars": [
+      "l",
+      "L"
+    ]
+  },
+  {
+    "note": "D3",
+    "frequency": 146.83,
+    "chars": [
+      "m",
+      "M"
+    ]
+  },
+  {
+    "note": "D#3",
+    "frequency": 155.56,
+    "chars": [
+      "n",
+      "N"
+    ]
+  },
+  {
+    "note": "E3",
+    "frequency": 164.81,
+    "chars": [
+      "o",
+      "O"
+    ]
+  },
+  {
+    "note": "F3",
+    "frequency": 174.61,
+    "chars": [
+      "p",
+      "P"
+    ]
+  },
+  {
+    "note": "F#3",
+    "frequency": 185,
+    "chars": [
+      "q",
+      "Q"
+    ]
+  },
+  {
+    "note": "G3",
+    "frequency": 196,
+    "chars": [
+      "r",
+      "R"
+    ]
+  },
+  {
+    "note": "G#3",
+    "frequency": 207.65,
+    "chars": [
+      "s",
+      "S"
+    ]
+  },
+  {
+    "note": "A3",
+    "frequency": 220,
+    "chars": [
+      "t",
+      "T"
+    ]
+  },
+  {
+    "note": "A#3",
+    "frequency": 233.08,
+    "chars": [
+      "u",
+      "U"
+    ]
+  },
+  {
+    "note": "B3",
+    "frequency": 246.94,
+    "chars": [
+      "v",
+      "V"
+    ]
+  },
+  {
+    "note": "C4",
+    "frequency": 261.63,
+    "chars": [
+      "w",
+      "W"
+    ]
+  },
+  {
+    "note": "C#4",
+    "frequency": 277.18,
+    "chars": [
+      "x",
+      "X"
+    ]
+  },
+  {
+    "note": "D4",
+    "frequency": 293.67,
+    "chars": [
+      "y",
+      "Y"
+    ]
+  },
+  {
+    "note": "D#4",
+    "frequency": 311.13,
+    "chars": [
+      "z",
+      "Z"
+    ]
+  },
+  {
+    "note": "E4",
+    "frequency": 329.63,
+    "chars": [
+      "1",
+      "!"
+    ]
+  },
+  {
+    "note": "F4",
+    "frequency": 349.23,
+    "chars": [
+      "2",
+      "@"
+    ]
+  },
+  {
+    "note": "F#4",
+    "frequency": 369.95,
+    "chars": [
+      "3",
+      "#"
+    ]
+  },
+  {
+    "note": "G4",
+    "frequency": 392,
+    "chars": [
+      "4",
+      "$"
+    ]
+  },
+  {
+    "note": "G#4",
+    "frequency": 415.31,
+    "chars": [
+      "5",
+      "%"
+    ]
+  },
+  {
+    "note": "A4",
+    "frequency": 440,
+    "chars": [
+      "6",
+      "^"
+    ]
+  },
+  {
+    "note": "A#4",
+    "frequency": 466.16,
+    "chars": [
+      "7",
+      "&"
+    ]
+  },
+  {
+    "note": "B4",
+    "frequency": 493.88,
+    "chars": [
+      "8",
+      "*"
+    ]
+  },
+  {
+    "note": "C5",
+    "frequency": 523.25,
+    "chars": [
+      "9",
+      "("
+    ]
+  },
+  {
+    "note": "C#5",
+    "frequency": 554.36,
+    "chars": [
+      "0",
+      ")"
+    ]
+  },
+  {
+    "note": "D5",
+    "frequency": 587.33,
+    "chars": [
+      "-",
+      "_"
+    ]
+  },
+  {
+    "note": "D#5",
+    "frequency": 622.25,
+    "chars": [
+      "=",
+      "+"
+    ]
+  },
+  {
+    "note": "E5",
+    "frequency": 659.26,
+    "chars": [
+      "[",
+      "{"
+    ]
+  },
+  {
+    "note": "F5",
+    "frequency": 698.46,
+    "chars": [
+      "]",
+      "}"
+    ]
+  },
+  {
+    "note": "F#5",
+    "frequency": 740,
+    "chars": [
+      "\\",
+      "|"
+    ]
+  },
+  {
+    "note": "G5",
+    "frequency": 783.99,
+    "chars": [
+      ";",
+      ":"
+    ]
+  },
+  {
+    "note": "G#5",
+    "frequency": 830.61,
+    "chars": [
+      "'",
+      "\""
+    ]
+  },
+  {
+    "note": "A5",
+    "frequency": 880,
+    "chars": [
+      ",",
+      "<"
+    ]
+  },
+  {
+    "note": "A#5",
+    "frequency": 932.33,
+    "chars": [
+      ".",
+      ">"
+    ]
+  },
+  {
+    "note": "B5",
+    "frequency": 987.77,
+    "chars": [
+      "/",
+      "?"
+    ]
+  },
+  {
+    "note": "C6",
+    "frequency": 1046.50,
+    "chars": [
+      "`",
+      "~"
+    ]
+  },
+  {
+    "note": "C#6",
+    "frequency": 1108.73,
+    "chars": [
+      "del",
+      "del"
+    ]
+  },
+  {
+    "note": "D6",
+    "frequency": 1174.66,
+    "chars": [
+      "run",
+      "run"
+    ]
+  }
+]
