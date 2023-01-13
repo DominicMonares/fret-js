@@ -888,15 +888,15 @@
     {
       "primary": true,
       "chars": [
-        " ",
-        " "
+        "⎵",
+        "⎵"
       ]
     },
     {
       "primary": true,
       "chars": [
-        "\n",
-        "\n"
+        "↵",
+        "↵"
       ]
     },
     {
