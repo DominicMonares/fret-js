@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import Fretboard from './Fretboard/Fretboard';
+import Diagram from './Diagram/Diagram';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
@@ -179,7 +179,7 @@ const App = () => {
           <div className="output">{output}</div>
         </div>
       </div>
-      <Fretboard fretNum={fretNum} shift={shift} />
+      <Diagram fretNum={fretNum} shift={shift} />
     </div>
   );
 }

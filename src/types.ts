@@ -18,7 +18,7 @@ export type FindNote = (
 
 export type FretNum = 22 | 24;
 
-export interface FretProps {
+export interface DiagramProps {
   fretNum: FretNum;
   shift: boolean;
 }
