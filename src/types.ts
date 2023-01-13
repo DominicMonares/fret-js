@@ -7,7 +7,7 @@ export interface Diagram {
 }
 
 export interface DiagramNode {
-  primary: boolean;
+  main: boolean;
   chars: string[];
 }
 
