@@ -403,16 +403,16 @@
     "note": "C#6",
     "frequency": 1108.73,
     "chars": [
-      "delete",
-      "delete"
+      "del",
+      "del"
     ]
   },
   {
     "note": "D6",
     "frequency": 1174.66,
     "chars": [
-      "return",
-      "return"
+      "run",
+      "run"
     ]
   }
 ]

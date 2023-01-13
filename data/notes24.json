@@ -403,16 +403,16 @@
     "note": "D#6",
     "frequency": 1244.51,
     "chars": [
-      "delete",
-      "delete"
+      "del",
+      "del"
     ]
   },
   {
     "note": "E6",
     "frequency": 1318.51,
     "chars": [
-      "return",
-      "return"
+      "run",
+      "run"
     ]
   }
 ]

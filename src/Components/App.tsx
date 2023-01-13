@@ -127,10 +127,10 @@ const App = () => {
     if (char !== '') {
       if (char === 'shift') {
         setShift(prev => !prev);
-      } else if (char === 'delete') {
+      } else if (char === 'del') {
         newinput.pop();
         setInput(newinput);
-      } else if (char === 'return') {
+      } else if (char === 'run') {
         setRecording(false);
       } else {
         newinput.push(char);
