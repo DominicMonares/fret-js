@@ -60,11 +60,12 @@
 }
 
 .main {
-  background-color: green;
+  background-color: #49a85f;
+  font-weight: bold;
 }
 
 .secondary {
-  background-color: lightgreen;
+  background-color: lightgray;
 }
 
 .char {
