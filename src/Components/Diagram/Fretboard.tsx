@@ -10,7 +10,6 @@ const Fretboard = ({ shift, diagram }: FretboardProps) => {
             className={`fret ${f.chars[0] === '' ? 'blank' : f.main ? 'main' : 'secondary'}`}
             key={i}
           >
-            <span className="string"></span>
             <span className="char">
               {shift ? f.chars[1] : f.chars[0]}
             </span>
