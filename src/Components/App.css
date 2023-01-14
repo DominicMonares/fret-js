@@ -1,4 +1,7 @@
 #app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   font-family: sans-serif;
 }
@@ -6,26 +9,32 @@
 .top-container {
   display: flex;
   justify-content: space-between;
-  min-height: 60%;
+  height: 100%;
+  margin-bottom: 30px;
 }
 
 .left-panel {
+  display: flex;
+  flex-direction: column;
   width: 33%;
-  border: 3px solid black;
+  border: 2px solid #393635;
   border-radius: 5px;
 }
 
 .logo-container {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .logo {
-  font-size: 100px;
+  font-size: 125px;
   color: #393635;
   background-image: -webkit-linear-gradient(0deg, #393635 48%,#7A7472 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
+  padding-top: 0px;
 }
