@@ -5,13 +5,13 @@ const Workspace = ({ shift, input, output }: WorkspaceProps) => {
   return (
     <div className="workspace-container">
       <div className="console">
-        <span className="">Input</span>
-        <span className="">{shift ? <div>SHIFT ON</div> : <></>}</span>
-        <div className="">{input.join('')}</div>
+        <span className="label">Input</span>
+        <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
+        <div className="content">{input.join('')}</div>
       </div>
       <div className="console">
-        <span className="">Output</span>
-        <div className="">{output}</div>
+        <span className="label">Output</span>
+        <div className="content">{output}</div>
       </div>
     </div>
   );

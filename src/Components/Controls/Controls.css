@@ -3,24 +3,23 @@
   flex-direction: column;
 }
 
-.inactive, .active {
+.inactive, .active, .inactive:active {
   margin-left: 15%;
   margin-right: 15%;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  height: 65px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  height: 45px;
   border: 2px solid #393635;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .inactive {
   background-color: #e7e7e5;
-  font-weight: 500;
 }
 
 .active, .inactive:active {
   background-color: #393635;
-  height: 30px;
-  font-weight: 500;
   color: #e7e7e5;
+  font-weight: 500;
 }
