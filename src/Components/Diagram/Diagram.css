@@ -9,7 +9,7 @@
 .fb-tune {
   display: inline-grid;
   grid-template-rows: repeat(6, 35px);
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .fb-tune-note {
