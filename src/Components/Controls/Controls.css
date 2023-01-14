@@ -1,0 +1,32 @@
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.record {
+  margin-bottom: 15%;
+}
+
+.inactive, .active, .inactive:active {
+  width: 150px;
+  height: 35px;
+  border: 2px solid #393635;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.inactive {
+  background-color: #e7e7e5;
+}
+
+.active, .inactive:active {
+  background-color: #393635;
+  color: #e7e7e5;
+  font-weight: 500;
+}
+
+.invoke {
+  font-size: 14px;
+}
