@@ -1,0 +1,21 @@
+.input, .output {
+  border-style: solid;
+  border-color: darkorchid;
+  border-radius: 5px;
+  height: 200px;
+  width: 400px;
+  white-space: pre-wrap;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 2px;
+}
+
+.output, .output-label {
+  margin-left: 25px;
+}
+
+.shift {
+  float: right;
+}

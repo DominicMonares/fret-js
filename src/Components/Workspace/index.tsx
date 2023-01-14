@@ -1,4 +1,5 @@
 import { WorkspaceProps } from "../../types";
+import './Workspace.css';
 
 const Workspace = ({ shift, input, output }: WorkspaceProps) => {
   return (

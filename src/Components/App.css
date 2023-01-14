@@ -9,30 +9,17 @@
   margin-bottom: 25px;
 }
 
-.logo {
+.logo-container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
 }
 
-.input, .output {
-  border-style: solid;
-  border-color: darkorchid;
-  border-radius: 5px;
-  height: 200px;
-  width: 400px;
-  white-space: pre-wrap;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-top: 2px;
-}
-
-.output, .output-label {
-  margin-left: 25px;
-}
-
-.shift {
-  float: right;
+.logo {
+  font-size: 100px;
+  color: #393635;
+  background-image: -webkit-linear-gradient(0deg, #393635 48%,#7A7472 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 }
