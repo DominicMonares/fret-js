@@ -12,22 +12,24 @@ const Controls = ({
 }: ControlsProps) => {
   return (
     <div className="controls-container">
-      <button
-        className={`record ${recording ? "active" : "inactive"}`}
-        onClick={() => {
-          setRecording(true);
-          setRecordingStarted(true);
-        }}
-      >
-        {recording ? "Recording!" : "Start Recording"}
-      </button>
-      <button
-        className="inactive"
-        onClick={clearRecording}
-        disabled={!recording && output ? false : true}
-      >
-        Clear Recording
-      </button>
+      <div className="record-container">
+        <button
+          className={recording ? "active" : "inactive"}
+          onClick={() => {
+            setRecording(true);
+            setRecordingStarted(true);
+          }}
+        >
+          {recording ? "Recording!" : "Start Recording"}
+        </button>
+        <button
+          className="inactive"
+          onClick={clearRecording}
+          disabled={!recording && output ? false : true}
+        >
+          Clear Recording
+        </button>
+      </div>
       <button
         className="inactive"
         onClick={() => setFretNum(fretNum === 22 ? 24 : 22)}

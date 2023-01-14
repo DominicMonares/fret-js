@@ -148,24 +148,15 @@ const App = () => {
           <div className="logo-container">
             <span className="logo">fretJS</span>
           </div>
-          <div>
-            <Controls
-              setFretNum={setFretNum}
-              fretNum={fretNum}
-              recording={recording}
-              setRecording={setRecording}
-              setRecordingStarted={setRecordingStarted}
-              clearRecording={clearRecording}
-              output={output}
-            />
-            <a
-              className="source"
-              href="https://github.com/DominicMonares/fret-js"
-              target="_blank"
-            >
-              Source Code
-            </a>
-          </div>
+          <Controls
+            setFretNum={setFretNum}
+            fretNum={fretNum}
+            recording={recording}
+            setRecording={setRecording}
+            setRecordingStarted={setRecordingStarted}
+            clearRecording={clearRecording}
+            output={output}
+          />
         </div>
         <Workspace shift={shift} input={input} output={output} />
       </div>

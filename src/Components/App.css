@@ -1,7 +1,6 @@
 #app {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   height: 100%;
   font-family: sans-serif;
 }
@@ -40,9 +39,4 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   padding-top: 0px;
-}
-
-.source {
-  display: flex;
-  justify-content: center;
 }
