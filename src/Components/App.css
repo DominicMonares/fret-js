@@ -18,6 +18,7 @@
 .left-panel {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 20%;
   border: 2px solid #393635;
   border-radius: 5px;
@@ -39,4 +40,9 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   padding-top: 0px;
+}
+
+.source {
+  display: flex;
+  justify-content: center;
 }

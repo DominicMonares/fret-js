@@ -13,7 +13,7 @@ const Controls = ({
   return (
     <div className="controls-container">
       <button
-        className={recording ? "active" : "inactive"}
+        className={`record ${recording ? "active" : "inactive"}`}
         onClick={() => {
           setRecording(true);
           setRecordingStarted(true);
