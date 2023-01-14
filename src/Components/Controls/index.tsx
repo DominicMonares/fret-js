@@ -11,15 +11,15 @@ const Controls = ({
   clearRecording
 }: ControlsProps) => {
   return (
-    <div className="buttons">
+    <div className="controls-container">
       <button
-        className="fretNum"
+        className="inactive"
         onClick={() => setFretNum(fretNum === 22 ? 24 : 22)}
       >
         {fretNum === 22 ? "Switch to 24 Frets" : "Switch to 22 Frets"}
       </button>
       <button
-        className={recording ? "recording" : "record"}
+        className={recording ? "active" : "inactive"}
         onClick={() => {
           setRecording(true);
           setRecordingStarted(true);
@@ -28,7 +28,7 @@ const Controls = ({
         {recording ? "Recording!" : "Start Recording"}
       </button>
       <button
-        className="clear-record"
+        className="inactive"
         onClick={clearRecording}
         disabled={!recording && output ? false : true}
       >
