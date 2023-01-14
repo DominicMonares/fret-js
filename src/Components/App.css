@@ -2,6 +2,16 @@
   font-family: sans-serif;
 }
 
+.top-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-panel {
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
 .logo-container {
   display: flex;
   justify-content: center;

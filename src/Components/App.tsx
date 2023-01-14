@@ -143,19 +143,23 @@ const App = () => {
 
   return (
     <div id="app">
-      <div className="logo-container">
-        <span className="logo">fretJS</span>
+      <div className="top-container">
+        <div className="left-panel">
+          <div className="logo-container">
+            <span className="logo">fretJS</span>
+          </div>
+          <Controls
+            setFretNum={setFretNum}
+            fretNum={fretNum}
+            recording={recording}
+            setRecording={setRecording}
+            setRecordingStarted={setRecordingStarted}
+            clearRecording={clearRecording}
+            output={output}
+          />
+        </div>
+        <Workspace shift={shift} input={input} output={output} />
       </div>
-      <Controls
-        setFretNum={setFretNum}
-        fretNum={fretNum}
-        recording={recording}
-        setRecording={setRecording}
-        setRecordingStarted={setRecordingStarted}
-        clearRecording={clearRecording}
-        output={output}
-      />
-      <Workspace shift={shift} input={input} output={output} />
       <Diagram fretNum={fretNum} shift={shift} />
     </div>
   );
