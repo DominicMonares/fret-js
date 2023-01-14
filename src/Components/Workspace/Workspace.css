@@ -1,3 +1,10 @@
+.workspace {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
 .input, .output {
   border-style: solid;
   border-color: darkorchid;

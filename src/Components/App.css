@@ -2,13 +2,6 @@
   font-family: sans-serif;
 }
 
-.workspace {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 25px;
-}
-
 .logo-container {
   display: flex;
   justify-content: center;
