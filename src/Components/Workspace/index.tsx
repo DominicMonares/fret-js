@@ -9,7 +9,12 @@ const Workspace = ({ shift, input, output }: WorkspaceProps) => {
           <span className="label">Input</span>
           <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
         </div>
-        <div className="content">{input.join('')}</div>
+        <div className="content">
+          {!input.length ?
+            <span className="ex">{'ex: (() => "Hello world!")()'}</span> :
+            input.join('')
+          }
+        </div>
       </div>
       <div className="console">
         <div className="header">
