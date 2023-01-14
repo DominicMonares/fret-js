@@ -2,6 +2,16 @@ export interface Chars {
   [key: string]: number;
 }
 
+export interface ControlsProps {
+  recording: boolean;
+  output: string;
+  fretNum: FretNum;
+  setFretNum: (initialState: FretNum) => void;
+  setRecording: (initialState: boolean) => void;
+  setRecordingStarted: (initialState: boolean) => void;
+  clearRecording: () => void;
+}
+
 export interface Diagram {
   [key: string]: DiagramNode[];
 }
@@ -39,3 +49,9 @@ export type TranslateFreq = (
   fundamentalFreq: number,
   fretNum: FretNum
 ) => string;
+
+export interface WorkspaceProps {
+  shift: boolean;
+  input: string[];
+  output: string;
+}

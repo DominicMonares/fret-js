@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import Diagram from './Diagram/Diagram';
+import Controls from './Controls';
+import Workspace from './Workspace';
+import Diagram from './Diagram';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
 import logo from '../../assets/logo.png';
@@ -144,41 +146,16 @@ const App = () => {
       <div className="logo" >
         <img src={logo} width="205" height="63" alt="Logo" />
       </div>
-      <div className="buttons">
-        <button
-          className="frets"
-          onClick={() => setFretNum(fretNum === 22 ? 24 : 22)}
-        >
-          {fretNum === 22 ? "Switch to 24 Frets" : "Switch to 22 Frets"}
-        </button>
-        <button
-          className={recording ? "recording" : "record"}
-          onClick={() => {
-            setRecording(true);
-            setRecordingStarted(true);
-          }}
-        >
-          {recording ? "Recording!" : "Start Recording"}
-        </button>
-        <button
-          className="clear-record"
-          onClick={clearRecording}
-          disabled={!recording && output ? false : true}
-        >
-          Clear Recording
-        </button>
-      </div>
-      <div className="workspace">
-        <div>
-          <span className="input-label">Input</span>
-          <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
-          <div className="input">{input.join('')}</div>
-        </div>
-        <div>
-          <span className="output-label">Output</span>
-          <div className="output">{output}</div>
-        </div>
-      </div>
+      <Controls
+        setFretNum={setFretNum}
+        fretNum={fretNum}
+        recording={recording}
+        setRecording={setRecording}
+        setRecordingStarted={setRecordingStarted}
+        clearRecording={clearRecording}
+        output={output}
+      />
+      <Workspace shift={shift} input={input} output={output} />
       <Diagram fretNum={fretNum} shift={shift} />
     </div>
   );

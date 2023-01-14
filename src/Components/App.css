@@ -15,33 +15,6 @@
   margin-top: 10px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.frets, .record, .clear-record {
-  border-style: solid;
-  border-color: darkorchid;
-  border-radius: 5px;
-  background-color: lavender;
-  width: 150px;
-  height: 30px;
-  font-weight: 500;
-}
-
-.recording, .stop-record:active, .clear-record:active {
-  border-style: solid;
-  border-color: darkorchid;
-  border-radius: 5px;
-  background-color: darkorchid;
-  width: 150px;
-  height: 30px;
-  font-weight: 500;
-  color: lavender;
-}
-
 .input, .output {
   border-style: solid;
   border-color: darkorchid;
