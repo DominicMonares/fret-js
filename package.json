@@ -1,8 +1,7 @@
 {
   "name": "fret-js",
-  "version": "2.0.0",
-  "description": "This program lets you write JavaScript with your guitar!",
-  "main": "npx nodemon ./server/index.js -w",
+  "version": "1.0.0",
+  "description": "Write JavaScript with your guitar!",
   "scripts": {
     "start": "webpack serve --port 3000",
     "build": "NODE_ENV=production webpack",
