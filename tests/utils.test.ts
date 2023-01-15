@@ -2,6 +2,7 @@ import { translateFreq, removeExtraChars } from '../src/utils/freqTranslation';
 import { detectPitch } from '../src/utils/detectPitch';
 import buffer from './bufferTestData.json';
 
+
 describe('detectPitch', () => {
   it('should return a freq around 330 when matching buffer applied', () => {
     const floatArr = new Float32Array(buffer.freq330);

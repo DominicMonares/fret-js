@@ -1,8 +1,4 @@
-import {
-  Chars,
-  FindNote,
-  TranslateFreq
-} from '../types';
+import { Chars, FindNote, TranslateFreq } from '../types';
 import notes22 from '../../data/notes22.json';
 import notes24 from '../../data/notes24.json';
 
