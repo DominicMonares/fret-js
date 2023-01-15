@@ -1,4 +1,4 @@
-.controls-container {
+.controls {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +47,8 @@ button {
   font-weight: bold;
 }
 
-button:enabled:active, .recording {
+button:enabled:active,
+.recording {
   background-color: #2D1C18;
   color: #E6C9A7;
   font-weight: bold;

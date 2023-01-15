@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-
 import Controls from './Controls';
 import Workspace from './Workspace';
 import Diagram from './Diagram';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
 import { detectPitch } from '../utils/detectPitch';
-import logo from '../../assets/logo.png';
 import { FretNum } from '../types';
 import './App.css';
 
@@ -107,7 +105,9 @@ const App = () => {
     // Execute code that the user wrote once recording is stopped
     let newOutput;
     try {
-      newOutput = eval(`(${input.join('')})`); // Never use eval on an app that needs security!
+      // Never use eval on an app that needs security!
+      // This line is the reason why this app cannot be deployed
+      newOutput = eval(`(${input.join('')})`);
     } catch (err: any) { // Can be any type of error
       newOutput = err.toString();
     }

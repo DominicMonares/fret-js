@@ -12,7 +12,7 @@ const Controls = ({
   clearRecording
 }: ControlsProps) => {
   return (
-    <div className="controls-container">
+    <div className="controls">
       <div className="logo">
         <span className="fret-logo">fret</span>
         <span className="js-logo">JS</span>
