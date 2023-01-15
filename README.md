@@ -16,6 +16,6 @@ npm install
 ```
 npm start
 ```
-Allow browser to access microphone.
+Set your USB audio interface as your device's audio input and allow browser to access microphone.
 
 Functions must be self invoked.
