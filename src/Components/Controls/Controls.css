@@ -2,6 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 284px;
+  border: 2px solid #2D1C18;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.fret-logo {
+  color: #2D1C18;
+  font-size: 85px;
+}
+
+.js-logo {
+  color: #2D1C18;
+  font-size: 85px;
+  background: #E6C9A7;
+  background: radial-gradient(circle farthest-corner at center center, #E6C9A7 0%, #2D1C18 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .record-container {
@@ -11,14 +37,14 @@
 }
 
 button {
+  margin-bottom: 10%;
   width: 150px;
   height: 35px;
-  background-color: #E6C9A7;
   border: 2px solid #2D1C18;
-  color: #2D1C18;
   border-radius: 5px;
+  background-color: #E6C9A7;
+  color: #2D1C18;
   font-weight: bold;
-  margin-bottom: 10%;
 }
 
 button:enabled:active, .recording {
@@ -28,5 +54,5 @@ button:enabled:active, .recording {
 }
 
 button:disabled {
-  color: rgba(45, 48, 24, 0.5);;
+  color: rgba(45, 48, 24, 0.5);
 }

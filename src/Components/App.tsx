@@ -144,21 +144,15 @@ const App = () => {
   return (
     <div id="app">
       <div className="top-container">
-        <div className="left-panel">
-          <div className="logo-container">
-            <span className="fret-logo">fret</span>
-            <span className="js">JS</span>
-          </div>
-          <Controls
-            setFretNum={setFretNum}
-            fretNum={fretNum}
-            recording={recording}
-            setRecording={setRecording}
-            setRecordingStarted={setRecordingStarted}
-            clearRecording={clearRecording}
-            output={output}
-          />
-        </div>
+        <Controls
+          setFretNum={setFretNum}
+          fretNum={fretNum}
+          recording={recording}
+          setRecording={setRecording}
+          setRecordingStarted={setRecordingStarted}
+          clearRecording={clearRecording}
+          output={output}
+        />
         <Workspace shift={shift} input={input} output={output} />
       </div>
       <Diagram fretNum={fretNum} shift={shift} />
