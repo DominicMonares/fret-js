@@ -16,8 +16,6 @@ npm install
 ```
 npm start
 ```
-Allow browser to access microphone
+Allow browser to access microphone.
 
-App is configured to 24 fret by default, but can be modified to work with any number of frets in the notes.js file.
-
-![Note Chart](./client/assets/24_fret.png)
+Functions must be self invoked.
