@@ -14,7 +14,7 @@ const Controls = ({
     <div className="controls-container">
       <div className="record-container">
         <button
-          className={recording ? "active" : "inactive"}
+          className={recording ? "recording" : ""}
           onClick={() => {
             setRecording(true);
             setRecordingStarted(true);
@@ -23,7 +23,7 @@ const Controls = ({
           {recording ? "Recording!" : "Start Recording"}
         </button>
         <button
-          className="inactive"
+          className=""
           onClick={clearRecording}
           disabled={!recording && output ? false : true}
         >
@@ -31,7 +31,7 @@ const Controls = ({
         </button>
       </div>
       <button
-        className="inactive"
+        className=""
         onClick={() => setFretNum(fretNum === 22 ? 24 : 22)}
       >
         {fretNum === 22 ? "Switch to 24 Frets" : "Switch to 22 Frets"}
