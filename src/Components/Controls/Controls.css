@@ -13,7 +13,7 @@
 .inactive, .active, .inactive:active {
   width: 150px;
   height: 35px;
-  border: 2px solid #393635;
+  border: 2px solid #2d1c18;
   border-radius: 5px;
   font-weight: bold;
   margin-bottom: 10%;
@@ -21,10 +21,11 @@
 
 .inactive {
   background-color: #e7e7e5;
+
 }
 
 .active, .inactive:active {
-  background-color: #393635;
+  background-color: #2d1c18;
   color: #e7e7e5;
   font-weight: 500;
 }

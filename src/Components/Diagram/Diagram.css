@@ -34,7 +34,7 @@
   grid-template-rows: repeat(6, 35px);
   box-sizing: border-box;
   border: 2px solid black;
-  background-color: #393635;
+  background-color: #2d1c18;
 }
 
 .fret, .fret-num {

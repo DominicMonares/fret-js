@@ -146,7 +146,8 @@ const App = () => {
       <div className="top-container">
         <div className="left-panel">
           <div className="logo-container">
-            <span className="logo">fretJS</span>
+            <span className="fret-logo">fret</span>
+            <span className="js">JS</span>
           </div>
           <Controls
             setFretNum={setFretNum}

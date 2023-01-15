@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   width: 20%;
-  border: 2px solid #393635;
+  border: 2px solid #2d1c18;
   border-radius: 5px;
 }
 
@@ -30,13 +30,18 @@
   margin-top: 10px;
 }
 
-.logo {
+.fret-logo {
   font-size: 90px;
-  color: #393635;
-  background-image: -webkit-linear-gradient(0deg, #393635 48%,#7A7472 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #2d1c18;
+}
+
+.js {
+  font-size: 90px;
+  color: #2d1c18;
   padding-top: 0px;
+  background: #E6C9A7;
+  background: radial-gradient(circle farthest-corner at center center, #E6C9A7 0%, #2d1c18 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
