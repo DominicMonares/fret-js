@@ -26,7 +26,7 @@
 */
 
 
-export const detectPitch = (buffer: Float32Array, sampleRate: number) => {
+const detectPitch = (buffer: Float32Array, sampleRate: number) => {
   // Get root mean square to see if there is enough signal
   let bufferSize = buffer.length;
   let rms = 0;
@@ -97,3 +97,5 @@ export const detectPitch = (buffer: Float32Array, sampleRate: number) => {
 
   return sampleRate / T0;
 }
+
+export default detectPitch;

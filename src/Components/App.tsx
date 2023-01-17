@@ -2,14 +2,12 @@ import { useEffect, useState } from 'react';
 import Controls from './Controls';
 import Workspace from './Workspace';
 import Diagram from './Diagram';
+import { analyser, context, setupContext } from '../utils/audio';
 import { removeExtraChars, translateFreq } from '../utils/freqTranslation';
-import { detectPitch } from '../utils/detectPitch';
+import detectPitch from '../utils/detectPitch';
 import { FretNum } from '../types';
 import './App.css';
 
-
-const context = new window.AudioContext;
-const analyser = new AnalyserNode(context, { fftSize: 2048 });
 
 const App = () => {
   const [recording, setRecording] = useState<boolean>(false);
@@ -27,36 +25,6 @@ const App = () => {
       () => console.error('Context setup failed')
     );
   }, []);
-
-  const setupContext = async () => {
-    if (context.state === 'suspended') await context.resume();
-
-    // Remove mic optimizations - prevents distortion, warble, and other audio glitches
-    const audioSettings = {
-      echoCancellation: false,
-      autoGainControl: false,
-      noiseSuppression: false,
-      latency: 0
-    }
-
-    // Guitar stream - primary audio source
-    const guitar = await navigator.mediaDevices.getUserMedia({ audio: audioSettings });
-    const source = context.createMediaStreamSource(guitar);
-
-    // Prevent distortion loop
-    const compressor = context.createDynamicsCompressor();
-    compressor.threshold.setValueAtTime(-50, context.currentTime);
-    compressor.knee.setValueAtTime(40, context.currentTime);
-    compressor.ratio.setValueAtTime(12, context.currentTime);
-    compressor.attack.setValueAtTime(0, context.currentTime);
-    compressor.release.setValueAtTime(0.25, context.currentTime);
-
-    // Connect all nodes to destination
-    source
-      .connect(compressor)
-      .connect(analyser)
-      .connect(context.destination);
-  }
 
   // Control recording behavior
   useEffect(() => {

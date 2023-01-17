@@ -1,5 +1,5 @@
 import { translateFreq, removeExtraChars } from '../src/utils/freqTranslation';
-import { detectPitch } from '../src/utils/detectPitch';
+import detectPitch from '../src/utils/detectPitch';
 import buffer from './bufferTestData.json';
 
 
