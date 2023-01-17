@@ -11,9 +11,16 @@ const Workspace = ({ shift, input, output }: WorkspaceProps) => {
           <span className="shift">{shift ? <div>SHIFT ON</div> : <></>}</span>
         </div>
         <div className="content">
-          {!input.length ?
-            <span className="ex">{"ex: (() => 'Hello world!')()"}</span> :
-            input.join('')
+          {
+            !input.length ?
+              <span className="ex">{"ex: (() => 'Hello world!')()"}</span> :
+              <>
+                {
+                  input.join('').split('\n').map((v, i) => {
+                    return <span key={i}>{i > 0 ? <><br /><>{v}</></> : <>{v}</>}</span>
+                  })
+                }
+              </>
           }
         </div>
       </div>
