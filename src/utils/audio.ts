@@ -37,7 +37,7 @@ export const setupContext = async () => {
   source
     .connect(compressor)
     .connect(analyser)
-    .connect(gain)
-    .connect(distortion)
+    // .connect(gain)
+    // .connect(distortion)
     .connect(context.destination);
 }

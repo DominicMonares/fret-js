@@ -53,8 +53,7 @@ button {
 }
 
 button:enabled:active,
-.recording,
-.distorted {
+.recording {
   background-color: #2D1C18;
   color: #E6C9A7;
   font-weight: bold;
