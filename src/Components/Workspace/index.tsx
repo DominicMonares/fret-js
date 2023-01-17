@@ -12,7 +12,7 @@ const Workspace = ({ shift, input, output }: WorkspaceProps) => {
         </div>
         <div className="content">
           {!input.length ?
-            <span className="ex">{'ex: (() => "Hello world!")()'}</span> :
+            <span className="ex">{"ex: (() => 'Hello world!')()"}</span> :
             input.join('')
           }
         </div>
