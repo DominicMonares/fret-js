@@ -14,7 +14,7 @@ compressor.release.setValueAtTime(0.25, context.currentTime);
 export const analyser = new AnalyserNode(context, { fftSize: 2048 });
 
 // Distortion effect
-const distortionGainNode = context.createGain();
+export const gain = context.createGain();
 export const distortion = context.createWaveShaper();
 distortion.curve = makeDistortionCurve(0, context.sampleRate);
 
@@ -37,7 +37,7 @@ export const setupContext = async () => {
   source
     .connect(compressor)
     .connect(analyser)
-    .connect(distortionGainNode)
+    .connect(gain)
     .connect(distortion)
     .connect(context.destination);
 }
