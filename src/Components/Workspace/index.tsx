@@ -17,7 +17,16 @@ const Workspace = ({ shift, input, output }: WorkspaceProps) => {
               <>
                 {
                   input.join('').split('\n').map((v, i) => {
-                    return <span key={i}>{i > 0 ? <><br /><>{v}</></> : <>{v}</>}</span>
+                    return (
+                      <span key={i}>
+                        {
+                          i > 0 ?
+                            // NEED TO FIGURE OUT SPACES ON NEWLINES
+                            <><br /><>{v === ' ' ? <span>•</span> : v}</></> :
+                            <>{v === ' ' ? <span>•</span> : v}</>
+                        }
+                      </span>
+                    )
                   })
                 }
               </>
