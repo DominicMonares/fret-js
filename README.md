@@ -1,11 +1,11 @@
-# fret-js
+# fretJS
 Write JavaScript with your guitar!
 
-[![fretJs Demo](https://img.youtube.com/vi/QHJy7SKRfSE/0.jpg)](https://www.youtube.com/watch?v=QHJy7SKRfSE)
+[![fretJs Demo](https://github.com/DominicMonares/fret-js/blob/main/thumnail.png)](https://www.youtube.com/watch?v=fRe4yupMJ-A)
 
 ### What's needed:
 - USB Audio Interface
-- Electric guitar with cable 
+- Electric guitar with 1/4" cable
 
 ## Installation
 ```
@@ -18,4 +18,6 @@ npm start
 ```
 Set your USB audio interface as your device's audio input and allow browser to access microphone.
 
-Functions must be self invoked.
+### Note
+- Functions must be self-invoked
+- Input signal must be clean
