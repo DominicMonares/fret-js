@@ -38,6 +38,10 @@ export interface DiagramProps {
   shift: boolean;
 }
 
+export interface InputProps {
+  line: string;
+}
+
 export interface NoteNode {
   note: string;
   frequency: number;

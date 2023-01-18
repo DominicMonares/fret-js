@@ -43,6 +43,12 @@
   padding: 5px;
 }
 
-.ex {
+.ex,
+.nl-spaces {
   color: gray;
+}
+
+.nl-spaces {
+  margin-right: 2px;
+  font-size: 12px;
 }
