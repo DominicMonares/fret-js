@@ -1,5 +1,4 @@
-# fretJS
-Write JavaScript with your guitar!
+# fretJS - Write JavaScript with your guitar!
 
 [![fretJs Demo](https://github.com/DominicMonares/fret-js/blob/main/thumnail.png)](https://www.youtube.com/watch?v=fRe4yupMJ-A)
 
