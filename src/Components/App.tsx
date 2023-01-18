@@ -75,7 +75,7 @@ const App = () => {
     try {
       // Never use eval on an app that needs security!
       // This line is the reason why this app cannot be deployed
-      newOutput = eval(`(${input.join('')})`);
+      newOutput = eval(input.join(''));
     } catch (err: any) { // Can be any type of error
       newOutput = err.toString();
     }
